@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:ital,wght@0,700;0,800;0,900;1,700;1,800&display=swap');
+
+:root {
+  font-family: 'Inter', sans-serif;
+
+  color: #ffffff;
+  background: #061522;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --navy-950: #04111d;
+  --navy-900: #071a2a;
+  --navy-850: #092238;
+  --navy-800: #0d2d49;
+
+  --blue-700: #145a9e;
+  --blue-600: #087fc4;
+  --blue-500: #0ca9e8;
+  --blue-400: #3fc8f4;
+  --cyan-300: #8ce4ff;
+
+  --white: #ffffff;
+
+  --gray-50: #f8fbfd;
+  --gray-100: #edf4f8;
+  --gray-300: #b7c8d4;
+  --gray-500: #78909f;
+
+  --text-dark: #0c2942;
+
+  --container: 1440px;
+
+  --transition: 250ms ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--navy-950);
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: 'Inter', sans-serif;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  color: #ffffff;
+  background: var(--blue-500);
+}
+
+.container {
+  width: min(calc(100% - 64px), var(--container));
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: min(calc(100% - 36px), var(--container));
+  }
+}
