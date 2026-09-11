@@ -1,0 +1,2249 @@
+.consultations {
+  position: relative;
+
+  padding:
+    68px 0
+    54px;
+
+  overflow: hidden;
+
+  color: #ffffff;
+
+  background:
+    radial-gradient(
+      circle at 16% 50%,
+      rgba(21, 178, 224, 0.09),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 88% 45%,
+      rgba(57, 214, 245, 0.065),
+      transparent 26%
+    ),
+    linear-gradient(
+      132deg,
+      #04131e 0%,
+      #071d2b 50%,
+      #041520 100%
+    );
+}
+
+.consultations::before {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  left: 0;
+
+  z-index: 5;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(75, 218, 251, 0.38),
+      transparent
+    );
+
+  content: '';
+}
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.consultations__grid {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.018;
+
+  background-image:
+    linear-gradient(
+      rgba(75, 218, 251, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(75, 218, 251, 0.1) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    88px 88px;
+
+  pointer-events: none;
+
+  animation:
+    consultationsGrid
+    22s linear infinite;
+}
+
+.consultations__glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter:
+    blur(125px);
+
+  pointer-events: none;
+}
+
+.consultations__glow--left {
+  top: 10%;
+  left: -250px;
+
+  width: 530px;
+  height: 530px;
+
+  background:
+    rgba(18, 168, 216, 0.08);
+
+  animation:
+    consultationsGlowLeft
+    10s ease-in-out infinite;
+}
+
+.consultations__glow--right {
+  right: -250px;
+  bottom: -260px;
+
+  width: 550px;
+  height: 550px;
+
+  background:
+    rgba(36, 192, 229, 0.07);
+
+  animation:
+    consultationsGlowRight
+    12s ease-in-out infinite;
+}
+
+.consultations__ambient-beam {
+  position: absolute;
+
+  top: 47%;
+  left: -15%;
+
+  width: 130%;
+  height: 1px;
+
+  opacity: 0.08;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(75, 218, 251, 0.8),
+      transparent
+    );
+
+  transform:
+    rotate(-7deg);
+
+  pointer-events: none;
+
+  animation:
+    consultationsBeam
+    9s ease-in-out infinite;
+}
+
+/* =====================================================
+   SVG ART
+===================================================== */
+
+.consultations__art {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  color:
+    #48dafa;
+
+  pointer-events: none;
+}
+
+.consultations__art-heart {
+  opacity: 0.075;
+}
+
+.consultations__heart-line {
+  stroke-dasharray: 540;
+  stroke-dashoffset: 540;
+
+  animation:
+    consultationsHeartDraw
+    5.5s ease-in-out infinite;
+}
+
+.consultations__heart-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+
+  animation:
+    consultationsHeartDot
+    2.2s ease-in-out infinite;
+}
+
+.consultations__art-cross {
+  opacity: 0.055;
+
+  transform-box: fill-box;
+  transform-origin: center;
+
+  animation:
+    consultationsCross
+    15s linear infinite;
+}
+
+.consultations__art-dumbbell {
+  opacity: 0.05;
+
+  transform-box: fill-box;
+  transform-origin: center;
+
+  animation:
+    consultationsFloat
+    8s ease-in-out infinite;
+}
+
+.consultations__art-orbits {
+  opacity: 0.018;
+
+  transform-box: fill-box;
+  transform-origin: center;
+
+  animation:
+    consultationsOrbit
+    28s linear infinite;
+}
+
+.consultations__art-particles {
+  opacity: 0.11;
+
+  animation:
+    consultationsParticles
+    6s ease-in-out infinite;
+}
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.consultations__container {
+  position: relative;
+
+  z-index: 3;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.consultations__header {
+  max-width: 900px;
+
+  margin:
+    0 auto
+    40px;
+
+  text-align: center;
+}
+
+.consultations__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-bottom: 15px;
+}
+
+.consultations__eyebrow > span {
+  width: 46px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #4bdafb
+    );
+
+  transform-origin: right;
+
+  animation:
+    consultationsEyebrowLine
+    4s ease-in-out infinite;
+}
+
+.consultations__eyebrow > span:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      #4bdafb,
+      transparent
+    );
+
+  transform-origin: left;
+}
+
+.consultations__eyebrow strong {
+  color:
+    #54defc;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+}
+
+.consultations__eyebrow i {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background:
+    #54defc;
+
+  box-shadow:
+    0 0 9px
+    rgba(84, 222, 252, 0.45);
+
+  animation:
+    consultationsDot
+    2.5s ease-in-out infinite;
+}
+
+.consultations__eyebrow small {
+  color:
+    rgba(255, 255, 255, 0.43);
+
+  font-size: 7px;
+  font-weight: 850;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+/* =====================================================
+   PROFESSIONAL TITLE
+===================================================== */
+
+.consultations__header h2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0;
+
+  color:
+    #f7fbfd;
+
+  font-family:
+    'Montserrat',
+    sans-serif;
+
+  font-size:
+    clamp(
+      41px,
+      4.35vw,
+      64px
+    );
+
+  font-style: normal;
+  font-weight: 800;
+
+  line-height: 0.98;
+
+  letter-spacing:
+    -0.045em;
+
+  text-align: center;
+
+  text-transform:
+    uppercase;
+}
+
+.consultations__header h2 > span {
+  color:
+    rgba(255, 255, 255, 0.96);
+}
+
+.consultations__header h2 strong {
+  position: relative;
+
+  display: inline-block;
+
+  margin-top: 6px;
+  padding-bottom: 11px;
+
+  color:
+    #4ad9f9;
+
+  font-weight: 800;
+
+  letter-spacing:
+    -0.04em;
+
+  text-shadow:
+    0 0 24px
+    rgba(75, 218, 251, 0.08);
+}
+
+.consultations__header h2 strong::after {
+  position: absolute;
+
+  bottom: 0;
+  left: 50%;
+
+  width: 58%;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(75, 218, 251, 0.95),
+      transparent
+    );
+
+  content: '';
+
+  transform:
+    translateX(-50%)
+    scaleX(0.72);
+
+  transform-origin:
+    center;
+
+  animation:
+    consultationsTitleLine
+    4s ease-in-out infinite;
+}
+
+.consultations__header p {
+  max-width: 620px;
+
+  margin:
+    17px auto 0;
+
+  color:
+    rgba(255, 255, 255, 0.57);
+
+  font-size: 12px;
+
+  line-height: 1.68;
+
+  text-align: center;
+}
+
+/* =====================================================
+   STATION
+===================================================== */
+
+.consultations__station {
+  position: relative;
+
+  max-width: 1160px;
+
+  margin:
+    0 auto;
+
+  overflow: hidden;
+
+  border-top:
+    1px solid
+    rgba(75, 218, 251, 0.25);
+
+  border-bottom:
+    1px solid
+    rgba(75, 218, 251, 0.11);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(15, 64, 82, 0.2),
+      rgba(4, 25, 38, 0.09)
+    );
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.015);
+
+  isolation: isolate;
+}
+
+.consultations__station::before {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  z-index: 3;
+
+  width: 3px;
+  height: 96px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #4bdafb,
+      transparent
+    );
+
+  content: '';
+
+  animation:
+    consultationsEdge
+    3.5s ease-in-out infinite;
+}
+
+.consultations__station-glow {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: -1;
+
+  width: 60%;
+  height: 85%;
+
+  border-radius: 50%;
+
+  background:
+    rgba(39, 200, 235, 0.025);
+
+  filter:
+    blur(80px);
+
+  transform:
+    translate(-50%, -50%);
+
+  pointer-events: none;
+
+  animation:
+    consultationsStationGlow
+    7s ease-in-out infinite;
+}
+
+/* =====================================================
+   MODES
+===================================================== */
+
+.consultations__modes {
+  position: relative;
+
+  z-index: 4;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      1fr
+    );
+
+  border-bottom:
+    1px solid
+    rgba(75, 218, 251, 0.1);
+}
+
+.consultations__mode {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  min-height: 59px;
+
+  padding:
+    0 20px;
+
+  overflow: hidden;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+
+  border: 0;
+
+  background:
+    transparent;
+
+  font-family:
+    'Montserrat',
+    sans-serif;
+
+  font-size: 9px;
+  font-weight: 850;
+
+  letter-spacing:
+    0.13em;
+
+  text-transform:
+    uppercase;
+
+  cursor:
+    pointer;
+
+  transition:
+    color 250ms ease,
+    background 250ms ease;
+}
+
+.consultations__mode:first-child {
+  border-right:
+    1px solid
+    rgba(75, 218, 251, 0.08);
+}
+
+.consultations__mode-icon {
+  display: flex;
+
+  color:
+    rgba(75, 218, 251, 0.52);
+
+  transition:
+    color 250ms ease,
+    transform 250ms ease;
+}
+
+.consultations__mode > i {
+  position: absolute;
+
+  right: 20%;
+  bottom: -1px;
+  left: 20%;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #4bdafb,
+      transparent
+    );
+
+  opacity: 0;
+
+  transform:
+    scaleX(0);
+
+  transition:
+    opacity 250ms ease,
+    transform 300ms ease;
+}
+
+.consultations__mode-pulse {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 90px;
+  height: 90px;
+
+  border:
+    1px solid
+    rgba(75, 218, 251, 0.08);
+
+  border-radius: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  pointer-events: none;
+
+  animation:
+    consultationsModePulse
+    3s ease-out infinite;
+}
+
+.consultations__mode:hover {
+  color:
+    rgba(255, 255, 255, 0.88);
+
+  background:
+    rgba(75, 218, 251, 0.025);
+}
+
+.consultations__mode:hover
+.consultations__mode-icon {
+  color:
+    #7ae8ff;
+
+  transform:
+    translateY(-2px);
+}
+
+.consultations__mode--active {
+  color:
+    #ffffff;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(75, 218, 251, 0.045),
+      transparent
+    );
+}
+
+.consultations__mode--active
+.consultations__mode-icon {
+  color:
+    #58e0fd;
+}
+
+.consultations__mode--active
+> i {
+  opacity: 1;
+
+  transform:
+    scaleX(1);
+}
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.consultations__content {
+  position: relative;
+
+  z-index: 3;
+
+  display: grid;
+
+  grid-template-columns:
+    90px
+    minmax(0, 650px)
+    300px;
+
+  align-items: center;
+  justify-content: center;
+
+  gap:
+    clamp(
+      28px,
+      3vw,
+      46px
+    );
+
+  min-height: 220px;
+
+  padding:
+    30px 42px;
+}
+
+/* =====================================================
+   CONTENT ICON
+===================================================== */
+
+.consultations__content-icon {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 82px;
+  height: 82px;
+
+  margin:
+    0 auto;
+
+  color:
+    #55defc;
+
+  isolation: isolate;
+}
+
+.consultations__content-icon::before {
+  position: absolute;
+
+  inset: 5px;
+
+  border:
+    1px solid
+    rgba(75, 218, 251, 0.24);
+
+  border-radius:
+    50%;
+
+  content: '';
+
+  animation:
+    consultationsIconRing
+    4s ease-in-out infinite;
+}
+
+.consultations__content-icon > span:first-child {
+  position: absolute;
+
+  inset: 0;
+
+  border:
+    1px dashed
+    rgba(75, 218, 251, 0.15);
+
+  border-radius: 50%;
+
+  animation:
+    consultationsIconOrbit
+    13s linear infinite;
+}
+
+.consultations__content-icon-pulse {
+  position: absolute;
+
+  inset: 13px;
+
+  z-index: -1;
+
+  border:
+    1px solid
+    rgba(75, 218, 251, 0.25);
+
+  border-radius: 50%;
+
+  animation:
+    consultationsIconPulse
+    2.6s ease-out infinite;
+}
+
+.consultations__content-icon > svg {
+  position: relative;
+
+  z-index: 3;
+
+  animation:
+    consultationsMainIcon
+    3.5s ease-in-out infinite;
+}
+
+/* =====================================================
+   COPY
+===================================================== */
+
+.consultations__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-width: 0;
+
+  text-align: center;
+}
+
+.consultations__copy > span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color:
+    #56e1fd;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing:
+    0.19em;
+
+  text-align: center;
+
+  text-transform:
+    uppercase;
+}
+
+.consultations__copy h3 {
+  max-width: 650px;
+
+  margin:
+    0 auto;
+
+  color:
+    #ffffff;
+
+  font-family:
+    'Montserrat',
+    sans-serif;
+
+  font-size:
+    clamp(
+      27px,
+      2.35vw,
+      37px
+    );
+
+  font-style: normal;
+  font-weight: 800;
+
+  line-height: 1.04;
+
+  letter-spacing:
+    -0.035em;
+
+  text-align: center;
+
+  text-transform:
+    uppercase;
+}
+
+.consultations__copy p {
+  max-width: 570px;
+
+  margin:
+    14px auto 0;
+
+  color:
+    rgba(255, 255, 255, 0.57);
+
+  font-size: 11px;
+
+  line-height: 1.68;
+
+  text-align: center;
+}
+
+/* =====================================================
+   META
+===================================================== */
+
+.consultations__meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 16px;
+}
+
+.consultations__meta > div {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color:
+    rgba(255, 255, 255, 0.5);
+}
+
+.consultations__meta svg {
+  color:
+    #52defc;
+}
+
+.consultations__meta span {
+  font-size: 7px;
+  font-weight: 850;
+
+  letter-spacing:
+    0.09em;
+
+  text-transform:
+    uppercase;
+}
+
+.consultations__meta > i {
+  width: 4px;
+  height: 4px;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(75, 218, 251, 0.7);
+
+  animation:
+    consultationsDot
+    2.3s ease-in-out infinite;
+}
+
+/* =====================================================
+   ACTION
+===================================================== */
+
+.consultations__action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+
+  padding-left: 28px;
+
+  border-left:
+    1px solid
+    rgba(75, 218, 251, 0.14);
+
+  text-align: center;
+}
+
+.consultations__action-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  margin-bottom: 13px;
+
+  color:
+    rgba(75, 218, 251, 0.75);
+}
+
+.consultations__action-top svg {
+  animation:
+    consultationsCalendar
+    3s ease-in-out infinite;
+}
+
+.consultations__action-top span {
+  font-size: 7px;
+  font-weight: 900;
+
+  letter-spacing:
+    0.17em;
+
+  text-transform:
+    uppercase;
+}
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.consultations__button {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 13px;
+
+  width: 100%;
+  max-width: 285px;
+
+  min-height: 70px;
+
+  padding:
+    0 19px;
+
+  overflow: hidden;
+
+  color:
+    #ffffff;
+
+  border:
+    1px solid
+    rgba(75, 218, 251, 0.52);
+
+  background:
+    rgba(4, 34, 49, 0.54);
+
+  text-decoration:
+    none;
+
+  text-align: left;
+
+  isolation: isolate;
+
+  transition:
+    border-color 250ms ease,
+    background 250ms ease,
+    transform 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.consultations__button::before {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 3px;
+
+  background:
+    #4bdafb;
+
+  content: '';
+}
+
+.consultations__button > svg {
+  position: relative;
+
+  z-index: 3;
+
+  flex-shrink: 0;
+
+  color:
+    #54defc;
+
+  animation:
+    consultationsWhatsapp
+    3s ease-in-out infinite;
+}
+
+.consultations__button > span:not(
+  .consultations__button-pulse
+) {
+  position: relative;
+
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing:
+    0.055em;
+
+  text-transform:
+    uppercase;
+}
+
+.consultations__button small {
+  color:
+    rgba(255, 255, 255, 0.4);
+
+  font-size: 6px;
+  font-weight: 800;
+
+  letter-spacing:
+    0.11em;
+}
+
+.consultations__button > i {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: -35%;
+
+  z-index: 1;
+
+  width: 28%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(107, 231, 255, 0.12),
+      transparent
+    );
+
+  transform:
+    skewX(-17deg);
+
+  animation:
+    consultationsButtonSweep
+    5s ease-in-out infinite;
+}
+
+.consultations__button-pulse {
+  position: absolute;
+
+  right: 16px;
+
+  z-index: 1;
+
+  width: 8px;
+  height: 8px;
+
+  border:
+    1px solid
+    rgba(75, 218, 251, 0.5);
+
+  border-radius: 50%;
+
+  animation:
+    consultationsButtonPulse
+    2.7s ease-out infinite;
+}
+
+.consultations__button:hover {
+  border-color:
+    #4bdafb;
+
+  background:
+    rgba(10, 75, 95, 0.42);
+
+  box-shadow:
+    0 9px 28px
+    rgba(0, 0, 0, 0.16),
+    0 0 25px
+    rgba(75, 218, 251, 0.08);
+
+  transform:
+    translateY(-2px);
+}
+
+/* =====================================================
+   SCHEDULE
+===================================================== */
+
+.consultations__schedule {
+  position: relative;
+
+  z-index: 3;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(150px, 0.75fr)
+    minmax(420px, 1.5fr)
+    minmax(150px, 0.75fr);
+
+  align-items: center;
+
+  gap: 20px;
+
+  min-height: 64px;
+
+  padding:
+    0 38px;
+
+  border-top:
+    1px solid
+    rgba(75, 218, 251, 0.09);
+}
+
+.consultations__schedule::before {
+  position: absolute;
+
+  top: -1px;
+  left: 50%;
+
+  width: 160px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(75, 218, 251, 0.5),
+      transparent
+    );
+
+  content: '';
+
+  transform:
+    translateX(-50%);
+
+  animation:
+    consultationsScheduleLine
+    4s ease-in-out infinite;
+}
+
+.consultations__schedule-label,
+.consultations__schedule-signature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  color:
+    rgba(75, 218, 251, 0.63);
+
+  text-align: center;
+}
+
+.consultations__schedule-label span,
+.consultations__schedule-signature span {
+  color:
+    rgba(255, 255, 255, 0.39);
+
+  font-size: 6px;
+  font-weight: 850;
+
+  letter-spacing:
+    0.13em;
+
+  text-transform:
+    uppercase;
+}
+
+.consultations__schedule-hours {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 28px;
+
+  text-align: center;
+}
+
+.consultations__schedule-hours > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.consultations__schedule-hours span {
+  color:
+    #4edcfb;
+
+  font-size: 6px;
+  font-weight: 900;
+
+  letter-spacing:
+    0.13em;
+
+  text-transform:
+    uppercase;
+}
+
+.consultations__schedule-hours strong {
+  color:
+    rgba(255, 255, 255, 0.64);
+
+  font-size: 7px;
+  font-weight: 850;
+
+  letter-spacing:
+    0.04em;
+}
+
+.consultations__schedule-hours i,
+.consultations__schedule-signature i {
+  width: 4px;
+  height: 4px;
+
+  flex-shrink: 0;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(75, 218, 251, 0.62);
+}
+
+/* =====================================================
+   SCAN
+===================================================== */
+
+.consultations__scan {
+  position: absolute;
+
+  top: -50px;
+  right: 0;
+  left: 0;
+
+  z-index: 2;
+
+  height: 55px;
+
+  opacity: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(75, 218, 251, 0.025),
+      rgba(75, 218, 251, 0.055),
+      transparent
+    );
+
+  pointer-events:
+    none;
+
+  animation:
+    consultationsScan
+    8s ease-in-out infinite;
+}
+
+/* =====================================================
+   BOTTOM
+===================================================== */
+
+.consultations__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 22px;
+
+  color:
+    rgba(75, 218, 251, 0.48);
+}
+
+.consultations__bottom svg {
+  animation:
+    consultationsBottomPulse
+    3s ease-in-out infinite;
+}
+
+.consultations__bottom span {
+  color:
+    rgba(255, 255, 255, 0.31);
+
+  font-size: 6px;
+  font-weight: 850;
+
+  letter-spacing:
+    0.14em;
+
+  text-transform:
+    uppercase;
+}
+
+.consultations__bottom i {
+  width: 3px;
+  height: 3px;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(75, 218, 251, 0.58);
+}
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes consultationsGrid {
+  from {
+    background-position:
+      0 0;
+  }
+
+  to {
+    background-position:
+      88px 88px;
+  }
+}
+
+@keyframes consultationsGlowLeft {
+  0%,
+  100% {
+    opacity: 0.65;
+
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translate(30px, -12px)
+      scale(1.06);
+  }
+}
+
+@keyframes consultationsGlowRight {
+  0%,
+  100% {
+    opacity: 0.65;
+
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translate(-28px, 12px)
+      scale(1.07);
+  }
+}
+
+@keyframes consultationsBeam {
+  0%,
+  100% {
+    opacity: 0.025;
+
+    transform:
+      translateX(-4%)
+      rotate(-7deg);
+  }
+
+  50% {
+    opacity: 0.1;
+
+    transform:
+      translateX(4%)
+      rotate(-7deg);
+  }
+}
+
+@keyframes consultationsHeartDraw {
+  0% {
+    stroke-dashoffset:
+      540;
+
+    opacity: 0.2;
+  }
+
+  35% {
+    stroke-dashoffset:
+      0;
+
+    opacity: 1;
+  }
+
+  75% {
+    stroke-dashoffset:
+      0;
+
+    opacity: 0.8;
+  }
+
+  100% {
+    stroke-dashoffset:
+      -540;
+
+    opacity: 0.15;
+  }
+}
+
+@keyframes consultationsHeartDot {
+  0%,
+  100% {
+    opacity: 0.35;
+
+    transform:
+      scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      scale(1.45);
+  }
+}
+
+@keyframes consultationsCross {
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+@keyframes consultationsFloat {
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(0deg);
+  }
+
+  50% {
+    transform:
+      translateY(-9px)
+      rotate(2deg);
+  }
+}
+
+@keyframes consultationsOrbit {
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+@keyframes consultationsParticles {
+  0%,
+  100% {
+    opacity: 0.07;
+
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    opacity: 0.16;
+
+    transform:
+      translateY(-5px);
+  }
+}
+
+@keyframes consultationsEyebrowLine {
+  0%,
+  100% {
+    opacity: 0.45;
+
+    transform:
+      scaleX(0.75);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      scaleX(1);
+  }
+}
+
+@keyframes consultationsDot {
+  0%,
+  100% {
+    opacity: 0.5;
+
+    transform:
+      scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      scale(1.3);
+  }
+}
+
+@keyframes consultationsTitleLine {
+  0%,
+  100% {
+    opacity: 0.45;
+
+    transform:
+      translateX(-50%)
+      scaleX(0.65);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      scaleX(1);
+  }
+}
+
+@keyframes consultationsEdge {
+  0%,
+  100% {
+    opacity: 0.4;
+
+    height: 65px;
+  }
+
+  50% {
+    opacity: 1;
+
+    height: 110px;
+  }
+}
+
+@keyframes consultationsStationGlow {
+  0%,
+  100% {
+    opacity: 0.45;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.08);
+  }
+}
+
+@keyframes consultationsModePulse {
+  0% {
+    opacity: 0.22;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.65);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.5);
+  }
+}
+
+@keyframes consultationsIconOrbit {
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+@keyframes consultationsIconRing {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0
+      rgba(75, 218, 251, 0);
+  }
+
+  50% {
+    box-shadow:
+      0 0 20px
+      rgba(75, 218, 251, 0.15);
+  }
+}
+
+@keyframes consultationsIconPulse {
+  0% {
+    opacity: 0.45;
+
+    transform:
+      scale(0.75);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      scale(1.65);
+  }
+}
+
+@keyframes consultationsMainIcon {
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-2px);
+  }
+}
+
+@keyframes consultationsCalendar {
+  0%,
+  100% {
+    opacity: 0.65;
+
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translateY(-2px);
+  }
+}
+
+@keyframes consultationsWhatsapp {
+  0%,
+  100% {
+    transform:
+      scale(1);
+  }
+
+  50% {
+    transform:
+      scale(1.08);
+  }
+}
+
+@keyframes consultationsButtonSweep {
+  0%,
+  65%,
+  100% {
+    left: -35%;
+  }
+
+  82% {
+    left: 120%;
+  }
+}
+
+@keyframes consultationsButtonPulse {
+  0% {
+    opacity: 0.55;
+
+    transform:
+      scale(0.65);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      scale(2.8);
+  }
+}
+
+@keyframes consultationsScheduleLine {
+  0%,
+  100% {
+    opacity: 0.25;
+
+    width: 90px;
+  }
+
+  50% {
+    opacity: 1;
+
+    width: 220px;
+  }
+}
+
+@keyframes consultationsScan {
+  0%,
+  60% {
+    top: -55px;
+
+    opacity: 0;
+  }
+
+  68% {
+    opacity: 0.6;
+  }
+
+  95% {
+    opacity: 0.3;
+  }
+
+  100% {
+    top: 110%;
+
+    opacity: 0;
+  }
+}
+
+@keyframes consultationsBottomPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+
+    transform:
+      scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      scale(1.08);
+  }
+}
+
+/* =====================================================
+   MEDIUM DESKTOP
+===================================================== */
+
+@media (max-width: 1150px) {
+  .consultations__content {
+    grid-template-columns:
+      80px
+      minmax(0, 1fr)
+      270px;
+
+    gap: 28px;
+
+    padding:
+      30px 28px;
+  }
+
+  .consultations__copy h3 {
+    font-size:
+      clamp(
+        25px,
+        2.3vw,
+        33px
+      );
+  }
+
+  .consultations__schedule {
+    grid-template-columns:
+      1fr;
+
+    gap: 13px;
+
+    padding:
+      17px 25px;
+  }
+
+  .consultations__schedule-hours {
+    gap: 24px;
+  }
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+  .consultations {
+    padding:
+      62px 0
+      50px;
+  }
+
+  .consultations__header h2 {
+    font-size:
+      clamp(
+        39px,
+        7vw,
+        57px
+      );
+  }
+
+  .consultations__content {
+    grid-template-columns:
+      80px
+      minmax(0, 1fr);
+
+    padding:
+      28px 30px;
+  }
+
+  .consultations__action {
+    grid-column:
+      1 / -1;
+
+    width: 100%;
+    max-width: 420px;
+
+    margin:
+      0 auto;
+
+    padding:
+      21px 0 0;
+
+    border-top:
+      1px solid
+      rgba(75, 218, 251, 0.09);
+
+    border-left: 0;
+  }
+
+  .consultations__button {
+    max-width: 360px;
+  }
+
+  .consultations__schedule {
+    grid-template-columns:
+      1fr;
+
+    gap: 13px;
+
+    padding:
+      18px 28px;
+  }
+
+  .consultations__schedule-hours {
+    flex-wrap: wrap;
+
+    gap:
+      10px 28px;
+  }
+
+  .consultations__schedule-label,
+  .consultations__schedule-signature {
+    justify-content:
+      center;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+  .consultations {
+    padding:
+      55px 0
+      43px;
+  }
+
+  .consultations__header {
+    margin-bottom:
+      30px;
+  }
+
+  .consultations__eyebrow {
+    flex-wrap: wrap;
+  }
+
+  .consultations__eyebrow > span {
+    width: 27px;
+  }
+
+  .consultations__header h2 {
+    font-size:
+      clamp(
+        32px,
+        9vw,
+        43px
+      );
+
+    line-height: 1;
+  }
+
+  .consultations__header h2 strong {
+    padding-bottom: 9px;
+  }
+
+  .consultations__header p {
+    max-width: 410px;
+
+    font-size: 10px;
+  }
+
+  .consultations__modes {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .consultations__mode {
+    min-height: 54px;
+
+    padding:
+      0 8px;
+
+    font-size: 7px;
+  }
+
+  .consultations__content {
+    display: flex;
+    flex-direction: column;
+
+    align-items:
+      center;
+
+    gap: 16px;
+
+    min-height: 0;
+
+    padding:
+      27px 18px;
+  }
+
+  .consultations__content-icon {
+    width: 68px;
+    height: 68px;
+  }
+
+  .consultations__copy {
+    width: 100%;
+
+    text-align:
+      center;
+  }
+
+  .consultations__copy > span {
+    font-size: 7px;
+  }
+
+  .consultations__copy h3 {
+    max-width: 480px;
+
+    font-size:
+      clamp(
+        23px,
+        6vw,
+        30px
+      );
+
+    line-height: 1.08;
+  }
+
+  .consultations__copy p {
+    max-width: 470px;
+
+    font-size: 10px;
+  }
+
+  .consultations__meta {
+    justify-content:
+      center;
+  }
+
+  .consultations__meta span {
+    font-size: 6px;
+  }
+
+  .consultations__action {
+    width: 100%;
+    max-width: 420px;
+
+    padding:
+      19px 0 0;
+
+    border-top:
+      1px solid
+      rgba(75, 218, 251, 0.09);
+
+    border-left: 0;
+  }
+
+  .consultations__action-top {
+    justify-content:
+      center;
+  }
+
+  .consultations__button {
+    width: 100%;
+    max-width: none;
+
+    min-height: 67px;
+  }
+
+  .consultations__schedule {
+    padding:
+      18px 15px;
+  }
+
+  .consultations__schedule-hours {
+    flex-direction:
+      column;
+
+    gap: 11px;
+  }
+
+  .consultations__schedule-hours > div {
+    flex-wrap: wrap;
+  }
+
+  .consultations__art {
+    width: 170%;
+
+    left: -35%;
+  }
+
+  .consultations__art-cross,
+  .consultations__art-dumbbell {
+    opacity: 0.025;
+  }
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 430px) {
+  .consultations__header h2 {
+    font-size: 32px;
+  }
+
+  .consultations__copy h3 {
+    font-size: 23px;
+  }
+
+  .consultations__copy p {
+    font-size: 9px;
+  }
+
+  .consultations__schedule-hours > div {
+    flex-direction:
+      column;
+
+    gap: 5px;
+  }
+
+  .consultations__schedule-hours i {
+    display: none;
+  }
+
+  .consultations__bottom {
+    padding:
+      0 20px;
+  }
+}
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .consultations__grid,
+  .consultations__glow,
+  .consultations__ambient-beam,
+  .consultations__heart-line,
+  .consultations__heart-dot,
+  .consultations__art-cross,
+  .consultations__art-dumbbell,
+  .consultations__art-orbits,
+  .consultations__art-particles,
+  .consultations__eyebrow > span,
+  .consultations__eyebrow i,
+  .consultations__header h2 strong::after,
+  .consultations__station::before,
+  .consultations__station-glow,
+  .consultations__mode-pulse,
+  .consultations__content-icon::before,
+  .consultations__content-icon > span,
+  .consultations__content-icon-pulse,
+  .consultations__content-icon > svg,
+  .consultations__meta > i,
+  .consultations__action-top svg,
+  .consultations__button > svg,
+  .consultations__button > i,
+  .consultations__button-pulse,
+  .consultations__schedule::before,
+  .consultations__scan,
+  .consultations__bottom svg {
+    animation: none;
+  }
+
+  .consultations__mode,
+  .consultations__mode-icon,
+  .consultations__mode > i,
+  .consultations__button {
+    transition: none;
+  }
+}

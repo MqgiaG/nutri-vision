@@ -43,6 +43,9 @@ const navLinks = [
   },
 ]
 
+const whatsappUrl =
+  'https://wa.me/524775905740?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20una%20consulta%20en%20Nutri%20Visi%C3%B3n%20Synergy.'
+
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -202,20 +205,20 @@ function Header() {
           </nav>
 
           <a
-            href="https://wa.me/524779087101?text=Hola%20Alejandro%2C%20me%20gustaría%20solicitar%20información%20sobre%20una%20consulta%20en%20Nutri%20Visión%20Synergy."
+            href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
             className="header__mobile-cta"
             onClick={closeMenu}
           >
             <MessageCircle size={18} />
-            Hablar con Alejandro
+            Hablar con NVS
           </a>
         </div>
 
         <div className="header__actions">
           <a
-            href="https://wa.me/524779087101?text=Hola%20Alejandro%2C%20me%20gustaría%20solicitar%20información%20sobre%20una%20consulta%20en%20Nutri%20Visión%20Synergy."
+            href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
             className="header__cta"
