@@ -84,6 +84,9 @@ function AnimatedLetters({
   className = '',
   loopOffset = 0,
 }) {
+  const words = text.split(' ')
+  let characterOffset = 0
+
   return (
     <motion.span
       className={`about__animated-text ${className}`}
@@ -96,24 +99,42 @@ function AnimatedLetters({
       }}
       aria-label={text}
     >
-      {Array.from(text).map(
-        (letter, index) => (
-          <motion.span
-            key={`${letter}-${index}`}
-            className="about__animated-letter"
-            style={{
-              '--letter-loop-delay':
-                `${loopOffset + index * 0.07}s`,
-            }}
-            variants={letterItem}
+      {words.map((word, wordIndex) => {
+        const wordOffset = characterOffset
+        characterOffset += word.length + 1
+
+        return (
+          <span
+            className="about__animated-word"
+            key={`${word}-${wordIndex}`}
             aria-hidden="true"
           >
-            {letter === ' '
-              ? '\u00A0'
-              : letter}
-          </motion.span>
-        ),
-      )}
+            {Array.from(word).map(
+              (letter, letterIndex) => (
+                <motion.span
+                  key={`${letter}-${letterIndex}`}
+                  className="about__animated-letter"
+                  style={{
+                    '--letter-loop-delay': `${
+                      loopOffset +
+                      (wordOffset + letterIndex) * 0.07
+                    }s`,
+                  }}
+                  variants={letterItem}
+                >
+                  {letter}
+                </motion.span>
+              ),
+            )}
+
+            {wordIndex < words.length - 1 && (
+              <span className="about__animated-space">
+                &nbsp;
+              </span>
+            )}
+          </span>
+        )
+      })}
     </motion.span>
   )
 }

@@ -2176,402 +2176,2222 @@
 }
 
 /* =========================================
-   TABLET
+   TABLET · IPAD PRO / AIR / MINI
 ========================================= */
 
 @media (max-width: 1050px) {
   .hero {
-    min-height:
-      auto;
-
-    padding-top:
-      84px;
+    min-height: auto;
+    padding-top: 78px;
   }
 
   .hero::after,
   .hero__ghosts {
-    top:
-      84px;
+    top: 78px;
   }
 
   .hero__main {
-    grid-template-columns:
-      1fr;
-
-    padding-top:
-      42px;
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 0;
+    padding-top: 24px;
   }
 
   .hero__content {
-    max-width:
-      780px;
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 30px 0 18px;
+  }
 
-    padding:
-      34px 0
-      20px;
+  .hero__eyebrow {
+    max-width: 690px;
+    margin-bottom: 20px;
   }
 
   .hero__title-line--top {
-    font-size:
-      clamp(
-        72px,
-        10vw,
-        96px
-      );
+    font-size: clamp(70px, 10vw, 96px);
   }
 
   .hero__title-line--middle {
-    font-size:
-      clamp(
-        57px,
-        8vw,
-        76px
-      );
+    font-size: clamp(56px, 8vw, 76px);
   }
 
   .hero__title-line--bottom {
-    font-size:
-      clamp(
-        71px,
-        9.7vw,
-        94px
-      );
+    font-size: clamp(68px, 9.7vw, 94px);
+  }
+
+  .hero__description-wrap {
+    max-width: 700px;
+    margin-top: 24px;
+  }
+
+  .hero__actions {
+    max-width: 560px;
+    margin-top: 22px;
+  }
+
+  .hero__care {
+    max-width: 700px;
+    margin-top: 20px;
+    padding: 16px 0;
+  }
+
+  .hero__stats {
+    max-width: 720px;
+    margin-top: 14px;
   }
 
   .hero__visual {
-    width:
-      100%;
-
-    max-width:
-      850px;
-
-    min-height:
-      750px;
-
-    margin:
-      20px auto 0;
+    width: 100%;
+    max-width: 820px;
+    min-height: 620px;
+    margin: 6px auto 0;
   }
 
   .hero__character-wrap {
-    left:
-      50%;
-
-    transform:
-      translate(-50%, -50%)
-      scale(0.94);
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.82);
   }
 
   .hero__visual-aura,
   .hero__orbit {
-    left:
-      50%;
+    top: 49%;
+    left: 50%;
+  }
+
+  .hero__signals {
+    width: 155px;
+  }
+
+  .hero__signals--left {
+    left: 0;
+  }
+
+  .hero__signals--right {
+    right: 0;
+  }
+
+  .hero__motto {
+    left: 0;
+    bottom: 36px;
+  }
+
+  .hero__strip-inner {
+    min-height: 58px;
   }
 }
 
 /* =========================================
-   MOBILE
+   IPAD PORTRAIT
+========================================= */
+
+@media (max-width: 900px) {
+  .hero__content {
+    max-width: 760px;
+  }
+
+  .hero__visual {
+    max-width: 760px;
+    min-height: 590px;
+  }
+
+  .hero__character-wrap {
+    transform: translate(-50%, -50%) scale(0.77);
+  }
+
+  .hero__orbit--one {
+    width: 540px;
+    height: 540px;
+  }
+
+  .hero__orbit--two {
+    width: 445px;
+    height: 445px;
+  }
+
+  .hero__signals--left {
+    left: 1%;
+  }
+
+  .hero__signals--right {
+    right: 1%;
+  }
+}
+
+/* =========================================
+   MOBILE · IPHONE
 ========================================= */
 
 @media (max-width: 720px) {
   .hero {
-    padding-top:
-      72px;
+    padding-top: 68px;
   }
 
   .hero::after,
   .hero__ghosts {
-    top:
-      72px;
+    top: 68px;
+  }
+
+  .hero__grid {
+    opacity: 0.34;
+  }
+
+  .hero__glow--left {
+    width: 280px;
+    height: 280px;
+    opacity: 0.6;
+  }
+
+  .hero__glow--center {
+    width: 320px;
+    height: 320px;
+    opacity: 0.58;
+  }
+
+  .hero__glow--right {
+    width: 260px;
+    height: 260px;
+    opacity: 0.42;
   }
 
   .hero__main {
-    padding-top:
-      25px;
+    padding-top: 12px;
   }
 
   .hero__content {
-    padding:
-      32px 0
-      18px;
+    max-width: none;
+    padding: 22px 0 10px;
   }
 
   .hero__eyebrow {
-    grid-template-columns:
-      25px 1fr 25px;
-
-    gap:
-      8px;
+    grid-template-columns: minmax(18px, 1fr) auto minmax(18px, 1fr);
+    gap: 8px;
+    margin-bottom: 16px;
   }
 
   .hero__eyebrow-copy {
-    gap:
-      7px;
+    gap: 7px;
   }
 
   .hero__eyebrow-copy span {
-    font-size:
-      6px;
+    font-size: 5.5px;
+    letter-spacing: 0.1em;
+  }
 
-    letter-spacing:
-      0.1em;
+  .hero__eyebrow-copy i {
+    width: 3px;
+    height: 3px;
   }
 
   .hero__title {
-    max-width:
-      100%;
+    width: 100%;
+    max-width: 100%;
   }
 
   .hero__title-line--top {
-    font-size:
-      clamp(
-        51px,
-        14.2vw,
-        70px
-      );
+    font-size: clamp(47px, 13.1vw, 59px);
+    line-height: 0.9;
   }
 
   .hero__title-line--middle {
-    margin-top:
-      -5px;
-
-    font-size:
-      clamp(
-        41px,
-        11.3vw,
-        56px
-      );
+    margin-top: -4px;
+    font-size: clamp(38px, 10.7vw, 48px);
+    line-height: 0.86;
   }
 
   .hero__title-line--bottom {
-    margin-top:
-      -2px;
+    margin-top: -1px;
+    padding-right: 0.04em;
+    font-size: clamp(45px, 12.6vw, 57px);
+    line-height: 0.92;
+    letter-spacing: 0.014em;
+  }
 
-    padding-right:
-      0.08em;
+  .hero__title-line--bottom::after {
+    bottom: -5px;
+  }
 
-    font-size:
-      clamp(
-        49px,
-        13.4vw,
-        67px
-      );
+  .hero__description-wrap {
+    gap: 12px;
+    margin-top: 20px;
+  }
 
-    letter-spacing:
-      0.018em;
+  .hero__description {
+    font-size: 12px;
+    line-height: 1.65;
   }
 
   .hero__actions {
-    grid-template-columns:
-      1fr;
-
-    max-width:
-      400px;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: 9px;
+    max-width: none;
+    margin-top: 19px;
   }
 
   .hero__primary,
   .hero__secondary {
-    width:
-      100%;
+    width: 100%;
+    min-height: 54px;
+    padding: 8px 12px;
+  }
+
+  .hero__primary {
+    gap: 10px;
+  }
+
+  .hero__action-icon {
+    width: 28px;
+    height: 32px;
+    padding-right: 9px;
+  }
+
+  .hero__action-copy small {
+    font-size: 5px;
+    letter-spacing: 0.12em;
+  }
+
+  .hero__action-copy strong {
+    font-size: 9px;
   }
 
   .hero__care {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    max-width: none;
+    margin-top: 17px;
+    padding: 13px 0;
+  }
 
-    gap:
-      15px;
+  .hero__care-item {
+    gap: 8px;
+    min-width: 0;
+  }
 
-    max-width:
-      400px;
+  .hero__care-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .hero__care-copy {
+    min-width: 0;
+  }
+
+  .hero__care-copy small {
+    font-size: 5px;
+  }
+
+  .hero__care-copy strong {
+    font-size: 7px;
+    line-height: 1.2;
+  }
+
+  .hero__care-copy span {
+    font-size: 5px;
   }
 
   .hero__care-divider {
-    width:
-      100%;
-
-    height:
-      1px;
+    height: 32px;
   }
 
   .hero__stats {
-    grid-template-columns:
-      1fr 1fr;
-
-    max-width:
-      430px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: none;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.045);
   }
 
+  .hero__stat {
+    min-height: 78px;
+    padding: 12px 14px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+  }
+
+  .hero__stat:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .hero__stat:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .hero__stat:first-child {
+    padding-left: 14px;
+  }
+
+  .hero__stat-topline {
+    width: 19px;
+    margin-bottom: 6px;
+  }
+
+  .hero__stat > strong {
+    font-size: 14px;
+  }
+
+  .hero__stat > span:not(.hero__stat-topline) {
+    font-size: 5px;
+  }
+
+  .hero__stat small {
+    margin-top: 3px;
+    font-size: 4.5px;
+  }
+
+  /* La parte visual deja de ocupar más de una pantalla completa. */
   .hero__visual {
-    min-height:
-      1050px;
+    width: 100%;
+    min-height: 610px;
+    margin: 8px auto 0;
   }
 
   .hero__character-wrap {
-    top:
-      34%;
-
-    left:
-      50%;
-
-    transform:
-      translate(-50%, -50%)
-      scale(0.73);
+    top: 39%;
+    left: 50%;
+    width: 610px;
+    height: 720px;
+    transform: translate(-50%, -50%) scale(0.55);
   }
 
   .hero__visual-aura,
   .hero__orbit {
-    top:
-      34%;
-
-    left:
-      50%;
+    top: 39%;
+    left: 50%;
   }
 
-  .hero__signals {
-    width:
-      100%;
+  .hero__visual-aura {
+    width: 360px;
+    height: 410px;
+    filter: blur(82px);
   }
 
-  .hero__signals--left {
-    top:
-      auto;
-
-    right:
-      0;
-
-    bottom:
-      270px;
-
-    left:
-      0;
+  .hero__orbit--one {
+    width: 390px;
+    height: 390px;
   }
 
-  .hero__signals--right {
-    top:
-      auto;
-
-    right:
-      0;
-
-    bottom:
-      60px;
-
-    left:
-      0;
+  .hero__orbit--two {
+    width: 315px;
+    height: 315px;
   }
 
-  .hero__signal-line {
-    display:
-      none;
+  .hero__orbit-dot--one {
+    top: 12%;
+    left: 18%;
+  }
+
+  .hero__orbit-dot--two {
+    top: 24%;
+    right: 12%;
+  }
+
+  .hero__orbit-dot--three {
+    right: 7%;
+    bottom: 28%;
+  }
+
+  .hero__motto {
+    top: 10px;
+    bottom: auto;
+    left: 0;
+    width: 162px;
+    padding: 11px 0 10px 13px;
+  }
+
+  .hero__motto::before {
+    right: -38px;
+  }
+
+  .hero__motto::after {
+    top: 10px;
+    bottom: 10px;
+  }
+
+  .hero__motto-number {
+    margin-bottom: 4px;
+    font-size: 5px;
+  }
+
+  .hero__motto-small {
+    font-size: 7px;
+  }
+
+  .hero__motto strong {
+    font-size: 14px;
+  }
+
+  .hero__motto-rule {
+    width: 52px;
+    margin-top: 7px;
   }
 
   .hero__visual-heading,
   .hero__vertical-word,
   .hero__seal {
-    display:
-      none;
+    display: none;
   }
 
-  .hero__motto {
-    top:
-      5%;
+  /* Dos columnas compactas de señales en lugar de una lista larguísima. */
+  .hero__signals {
+    top: auto;
+    bottom: 22px;
+    width: calc(50% - 9px);
+    gap: 9px;
+  }
 
-    bottom:
-      auto;
+  .hero__signals--left {
+    right: auto;
+    left: 0;
+  }
 
-    left:
-      2%;
+  .hero__signals--right {
+    right: 0;
+    left: auto;
+  }
+
+  .hero__signal,
+  .hero__signals--left .hero__signal:nth-child(2),
+  .hero__signals--left .hero__signal:nth-child(3),
+  .hero__signals--right .hero__signal:nth-child(2),
+  .hero__signals--right .hero__signal:nth-child(3) {
+    min-height: 36px;
+    transform: none;
+  }
+
+  .hero__signals--right .hero__signal {
+    flex-direction: row;
+  }
+
+  .hero__signal-line {
+    display: none;
+  }
+
+  .hero__signal-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .hero__signal-copy {
+    min-width: 0;
+    gap: 2px;
+    margin: 0 0 0 7px;
+  }
+
+  .hero__signals--right .hero__signal-copy {
+    margin: 0 0 0 7px;
+  }
+
+  .hero__signal-copy strong {
+    font-size: 6px;
+    letter-spacing: 0.045em;
+    white-space: normal;
+  }
+
+  .hero__signal-copy span {
+    font-size: 4.5px;
+    letter-spacing: 0.07em;
+    line-height: 1.2;
   }
 
   .hero__strip-inner {
-    display:
-      grid;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 18px;
+    min-height: 0;
+    padding: 16px 0;
+  }
 
-    grid-template-columns:
-      1fr 1fr;
-
-    gap:
-      18px 20px;
-
-    padding:
-      20px 0;
+  .hero__strip-inner > div {
+    gap: 9px;
   }
 
   .hero__strip-inner > i {
-    display:
-      none;
+    display: none;
+  }
+
+  .hero__strip strong {
+    font-size: 9px;
+  }
+
+  .hero__strip span {
+    font-size: 5px;
   }
 }
 
 /* =========================================
-   SMALL MOBILE
+   SMALL IPHONE
 ========================================= */
 
 @media (max-width: 480px) {
   .hero__title-line--top {
-    font-size:
-      clamp(
-        45px,
-        13.5vw,
-        59px
-      );
+    font-size: clamp(43px, 12.7vw, 56px);
   }
 
   .hero__title-line--middle {
-    font-size:
-      clamp(
-        37px,
-        10.7vw,
-        47px
-      );
+    font-size: clamp(35px, 10.2vw, 45px);
   }
 
   .hero__title-line--bottom {
-    font-size:
-      clamp(
-        43px,
-        12.8vw,
-        56px
-      );
+    font-size: clamp(41px, 12.1vw, 53px);
   }
 
-  .hero__stats {
-    grid-template-columns:
-      1fr;
+  .hero__description {
+    font-size: 11px;
   }
 
   .hero__visual {
-    min-height:
-      1050px;
+    min-height: 575px;
   }
 
   .hero__character-wrap {
-    top:
-      29%;
-
-    transform:
-      translate(-50%, -50%)
-      scale(0.59);
+    top: 38%;
+    transform: translate(-50%, -50%) scale(0.51);
   }
 
   .hero__visual-aura,
   .hero__orbit {
-    top:
-      29%;
+    top: 38%;
   }
 
   .hero__motto {
-    top:
-      1%;
+    width: 150px;
   }
 
-  .hero__strip-inner {
-    grid-template-columns:
-      1fr;
+  .hero__signals {
+    bottom: 18px;
+    gap: 7px;
+  }
+
+  .hero__signal-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hero__signal-copy strong {
+    font-size: 5.6px;
+  }
+
+  .hero__signal-copy span {
+    font-size: 4.1px;
   }
 
   .hero__background-word {
-    display:
-      none;
+    display: none;
+  }
+}
+
+/* =========================================
+   NARROW IPHONE
+========================================= */
+
+@media (max-width: 400px) {
+  .hero__actions {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__primary,
+  .hero__secondary {
+    min-height: 50px;
+  }
+
+  .hero__care {
+    gap: 7px;
+  }
+
+  .hero__care-icon {
+    width: 31px;
+    height: 31px;
+  }
+
+  .hero__care-copy strong {
+    font-size: 6.4px;
+  }
+
+  .hero__care-copy span {
+    display: none;
+  }
+
+  .hero__visual {
+    min-height: 555px;
+  }
+
+  .hero__character-wrap {
+    top: 37%;
+    transform: translate(-50%, -50%) scale(0.47);
+  }
+
+  .hero__visual-aura,
+  .hero__orbit {
+    top: 37%;
+  }
+
+  .hero__signals {
+    width: calc(50% - 6px);
+  }
+
+  .hero__signal-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .hero__signal-copy {
+    margin-left: 5px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__orbit-dot,
+  .hero__glow,
+  .hero__ghost,
+  .hero__signal-line i {
+    animation: none !important;
+  }
+}
+
+/* =========================================
+   MOBILE GHOST + CENTERED HERO REFINEMENT
+========================================= */
+
+.hero__mobile-character-ghost,
+.hero__mobile-spotlight {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .hero__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero__mobile-character-ghost {
+    position: absolute;
+    top: 92px;
+    left: 50%;
+    z-index: 1;
+    display: block;
+    width: min(88vw, 340px);
+    transform: translateX(-50%);
+    opacity: 0.105;
+    pointer-events: none;
+    filter: saturate(0.9) brightness(1.08);
+  }
+
+  .hero__mobile-character-image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .hero__eyebrow,
+  .hero__title,
+  .hero__description-wrap,
+  .hero__actions,
+  .hero__care,
+  .hero__stats,
+  .hero__mobile-spotlight {
+    position: relative;
+    z-index: 3;
+  }
+
+  .hero__eyebrow {
+    max-width: 100%;
+    justify-items: center;
+  }
+
+  .hero__title {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+  }
+
+  .hero__title-line--top,
+  .hero__title-line--middle,
+  .hero__title-line--bottom {
+    justify-self: center;
+  }
+
+  .hero__description-wrap {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    max-width: 100%;
+    gap: 10px;
+  }
+
+  .hero__description-mark {
+    width: 74px;
+    height: 2px;
+  }
+
+  .hero__description {
+    max-width: 330px;
+    margin: 0 auto;
+  }
+
+  .hero__actions {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero__primary,
+  .hero__secondary {
+    justify-content: center;
+  }
+
+  .hero__action-copy {
+    align-items: center;
+  }
+
+  .hero__secondary::before {
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    width: 60px;
+    height: 2px;
+    transform: translateX(-50%);
+  }
+
+  .hero__secondary-accent {
+    left: 50%;
+    right: auto;
+    width: 44px;
+    transform: translateX(-50%);
+  }
+
+  .hero__care {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    width: 100%;
+    justify-items: center;
+  }
+
+  .hero__care::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero__care-divider {
+    display: none;
+  }
+
+  .hero__care-item {
+    justify-content: center;
+    width: 100%;
+    max-width: 280px;
+    text-align: left;
+  }
+
+  .hero__stats {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero__stat {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero__stat-topline {
+    align-self: center;
+  }
+
+  .hero__stat small {
+    max-width: 100%;
+  }
+
+  .hero__visual {
+    display: none;
+  }
+
+  .hero__mobile-spotlight {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 22px 14px 16px;
+    overflow: hidden;
+    border-top: 1px solid rgba(87, 223, 255, 0.14);
+    border-bottom: 1px solid rgba(87, 223, 255, 0.1);
+    background: linear-gradient(180deg, rgba(3, 20, 32, 0.14), rgba(3, 20, 32, 0.02));
+  }
+
+  .hero__mobile-spotlight::before {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 50% 18%, rgba(70, 211, 255, 0.12), transparent 34%),
+      linear-gradient(90deg, rgba(76, 212, 253, 0.06), transparent 34%, transparent 66%, rgba(76, 212, 253, 0.06));
+    content: '';
+    pointer-events: none;
+  }
+
+  .hero__mobile-spotlight-copy {
+    position: relative;
+    z-index: 2;
+    max-width: 300px;
+    margin: 0 auto 18px;
+    text-align: center;
+  }
+
+  .hero__mobile-spotlight-kicker {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: rgba(96, 224, 255, 0.58);
+    font-size: 6px;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .hero__mobile-spotlight-copy strong {
+    display: block;
+    color: #7be6ff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 23px;
+    font-style: italic;
+    font-weight: 900;
+    line-height: 0.98;
+    text-transform: uppercase;
+    text-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
+  }
+
+  .hero__mobile-spotlight-copy p {
+    margin: 12px auto 0;
+    color: rgba(255, 255, 255, 0.66);
+    font-size: 11px;
+    line-height: 1.65;
+  }
+
+  .hero__mobile-signals-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .hero__mobile-signal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 10px 11px;
+    border: 1px solid rgba(84, 217, 253, 0.12);
+    background: linear-gradient(135deg, rgba(10, 53, 74, 0.34), rgba(10, 53, 74, 0.08));
+    backdrop-filter: blur(6px);
+  }
+
+  .hero__mobile-signal-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border: 1px solid rgba(84, 217, 253, 0.2);
+    border-radius: 50%;
+    color: var(--blue-400);
+    background: radial-gradient(circle, rgba(17, 174, 225, 0.13), transparent 72%);
+  }
+
+  .hero__mobile-signal-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    text-align: left;
+  }
+
+  .hero__mobile-signal-copy strong {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 6.4px;
+    font-weight: 850;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .hero__mobile-signal-copy span {
+    color: rgba(88, 220, 255, 0.76);
+    font-size: 4.8px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  .hero__strip {
+    position: relative;
+    z-index: 5;
+  }
+
+  .hero__strip-inner {
+    justify-items: center;
+    padding: 16px 0 18px;
+  }
+
+  .hero__strip-inner > div {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 5px;
+  }
+
+  .hero__strip strong {
+    font-size: 11px;
+  }
+
+  .hero__strip span {
+    font-size: 5.8px;
+    line-height: 1.35;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__mobile-character-ghost {
+    top: 96px;
+    width: min(90vw, 325px);
+    opacity: 0.095;
+  }
+
+  .hero__mobile-spotlight {
+    padding: 20px 12px 14px;
+  }
+
+  .hero__mobile-spotlight-copy {
+    max-width: 280px;
+    margin-bottom: 16px;
+  }
+
+  .hero__mobile-spotlight-copy strong {
+    font-size: 21px;
+  }
+
+  .hero__mobile-spotlight-copy p {
+    font-size: 10.5px;
+  }
+
+  .hero__mobile-signal {
+    gap: 8px;
+    min-height: 50px;
+    padding: 9px 10px;
+  }
+
+  .hero__mobile-signal-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .hero__mobile-signal-copy strong {
+    font-size: 6px;
+  }
+
+  .hero__mobile-signal-copy span {
+    font-size: 4.5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero__mobile-signals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__mobile-spotlight-copy strong {
+    font-size: 19px;
+  }
+}
+
+/* =========================================
+   IPAD MINI · PORTRAIT 768px
+   Composition specifically balanced for
+   the 768 × 1024 viewport.
+========================================= */
+
+@media (min-width: 721px) and (max-width: 820px) {
+  .hero {
+    position: relative;
+    min-height: auto;
+    padding-top: 72px;
+    overflow: hidden;
+  }
+
+  .hero::after,
+  .hero__ghosts {
+    top: 72px;
+  }
+
+  .hero__grid {
+    opacity: 0.32;
+  }
+
+  .hero__glow--left {
+    width: 390px;
+    height: 390px;
+    opacity: 0.64;
+  }
+
+  .hero__glow--center {
+    width: 520px;
+    height: 520px;
+    opacity: 0.62;
+  }
+
+  .hero__glow--right {
+    width: 420px;
+    height: 420px;
+    opacity: 0.58;
+  }
+
+  .hero__main {
+    position: relative;
+    display: block;
+    min-height: 790px;
+    padding-top: 18px;
+    overflow: hidden;
+  }
+
+  /*
+    El contenido queda al frente y el personaje
+    vive detrás, cargado hacia la derecha.
+  */
+  .hero__content {
+    position: relative;
+    z-index: 12;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 28px 0 26px;
+    text-align: left;
+  }
+
+  .hero__eyebrow {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 0 18px;
+  }
+
+  .hero__eyebrow-copy {
+    justify-content: center;
+  }
+
+  .hero__title {
+    position: relative;
+    z-index: 13;
+    justify-items: start;
+    width: max-content;
+    max-width: 68%;
+    margin: 0;
+  }
+
+  .hero__title-line--top,
+  .hero__title-line--middle,
+  .hero__title-line--bottom {
+    justify-self: start;
+  }
+
+  .hero__title-line--top {
+    font-size: clamp(66px, 9vw, 74px);
+    line-height: 0.9;
+  }
+
+  .hero__title-line--middle {
+    justify-self: center;
+    margin-top: -7px;
+    font-size: clamp(52px, 7.2vw, 59px);
+    line-height: 0.88;
+  }
+
+  .hero__title-line--bottom {
+    margin-top: -2px;
+    font-size: clamp(64px, 8.7vw, 72px);
+    line-height: 0.92;
+  }
+
+  .hero__description-wrap {
+    position: relative;
+    z-index: 13;
+    grid-template-columns: 2px 1fr;
+    gap: 13px;
+    width: 100%;
+    max-width: 470px;
+    margin: 22px 0 0;
+  }
+
+  .hero__description {
+    max-width: 440px;
+    margin: 0;
+    font-size: 11.5px;
+    line-height: 1.62;
+    text-align: left;
+  }
+
+  .hero__actions {
+    position: relative;
+    z-index: 13;
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 610px;
+    margin: 22px 0 0;
+  }
+
+  .hero__primary,
+  .hero__secondary {
+    min-height: 54px;
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+  }
+
+  .hero__secondary {
+    background: rgba(3, 25, 39, 0.48);
+    border-color: rgba(76, 215, 251, 0.18);
+  }
+
+  .hero__care {
+    position: relative;
+    z-index: 13;
+    grid-template-columns: 1fr 1px 1fr;
+    width: 100%;
+    max-width: 610px;
+    margin: 18px 0 0;
+    padding: 14px 0;
+    background: linear-gradient(
+      90deg,
+      rgba(3, 24, 37, 0.16),
+      rgba(3, 24, 37, 0.05),
+      transparent
+    );
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  .hero__care-item {
+    justify-content: flex-start;
+  }
+
+  .hero__care-icon {
+    width: 37px;
+    height: 37px;
+  }
+
+  .hero__stats {
+    position: relative;
+    z-index: 13;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+    max-width: 650px;
+    margin: 15px 0 0;
+    background: linear-gradient(
+      90deg,
+      rgba(3, 24, 37, 0.18),
+      rgba(3, 24, 37, 0.04),
+      transparent
+    );
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .hero__stat {
+    align-items: flex-start;
+    padding: 10px 12px;
+    text-align: left;
+  }
+
+  .hero__stat:first-child {
+    padding-left: 0;
+  }
+
+  .hero__stat-topline {
+    align-self: flex-start;
+  }
+
+  .hero__stat > strong {
+    font-size: 17px;
+  }
+
+  /*
+    PERSONAJE COMO FONDO SEMIOPACO A LA DERECHA
+  */
+  .hero__visual {
+    position: absolute;
+    top: 24px;
+    right: -42px;
+    bottom: auto;
+    left: auto;
+    z-index: 6;
+    display: block;
+    width: 53%;
+    max-width: 430px;
+    min-height: 680px;
+    height: 680px;
+    margin: 0;
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  .hero__visual-aura {
+    top: 45%;
+    left: 58%;
+    width: 390px;
+    height: 510px;
+    opacity: 0.5;
+    filter: blur(90px);
+  }
+
+  .hero__orbit,
+  .hero__orbit-dot,
+  .hero__signals,
+  .hero__seal,
+  .hero__vertical-word {
+    display: none;
+  }
+
+  .hero__character-wrap {
+    top: 49%;
+    right: -34px;
+    left: auto;
+    width: 430px;
+    height: 650px;
+    transform: translateY(-50%);
+  }
+
+  .hero__character {
+    height: 625px;
+    opacity: 0.52;
+    filter:
+      saturate(0.88)
+      brightness(0.92)
+      drop-shadow(0 26px 32px rgba(0, 0, 0, 0.22))
+      drop-shadow(0 0 28px rgba(16, 196, 245, 0.08));
+    -webkit-mask-image:
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.62) 18%,
+        #000 42%,
+        #000 100%
+      );
+    mask-image:
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.62) 18%,
+        #000 42%,
+        #000 100%
+      );
+  }
+
+  .hero__visual-heading {
+    top: auto;
+    right: 28px;
+    bottom: 72px;
+    z-index: 14;
+    opacity: 0.72;
+  }
+
+  .hero__visual-heading span {
+    font-size: 5px;
+  }
+
+  .hero__visual-heading strong {
+    font-size: 7px;
+  }
+
+  .hero__motto {
+    left: -79%;
+    bottom: 58px;
+    z-index: 14;
+    width: 178px;
+    padding: 12px 0 11px 15px;
+  }
+
+  .hero__motto strong {
+    font-size: 15px;
+  }
+
+  .hero__motto-small {
+    font-size: 7px;
+  }
+
+  /* En iPad no usamos el bloque diseñado solo para móvil */
+  .hero__mobile-character-ghost,
+  .hero__mobile-spotlight {
+    display: none;
+  }
+
+  .hero__strip {
+    position: relative;
+    z-index: 20;
+  }
+
+  .hero__strip-inner {
+    min-height: 50px;
+    padding: 0 4px;
+  }
+
+  .hero__strip-inner > div {
+    gap: 7px;
+  }
+
+  .hero__strip strong {
+    font-size: 8px;
+  }
+
+  .hero__strip span {
+    font-size: 5px;
+    letter-spacing: 0.12em;
+  }
+
+  .hero__strip-inner > i {
+    width: 18px;
+  }
+}
+
+/* =========================================
+   IPAD MINI · FINAL BALANCE
+   768 × 1024
+   Fills the composition without dead space.
+========================================= */
+
+@media (min-width: 721px) and (max-width: 820px) {
+  .hero {
+    min-height: auto;
+    padding-top: 72px;
+  }
+
+  .hero__main {
+    position: relative;
+    display: block;
+    min-height: 690px;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+  }
+
+  /* CONTENT */
+
+  .hero__content {
+    position: relative;
+    z-index: 12;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 46px 0 18px;
+    text-align: left;
+  }
+
+  .hero__eyebrow {
+    width: 100%;
+    max-width: 610px;
+    margin: 0 auto 22px 0;
+  }
+
+  .hero__eyebrow-copy {
+    justify-content: center;
+  }
+
+  .hero__title {
+    position: relative;
+    z-index: 13;
+    justify-items: start;
+    width: max-content;
+    max-width: 64%;
+    margin: 0 0 0 2px;
+  }
+
+  .hero__title-line--top,
+  .hero__title-line--middle,
+  .hero__title-line--bottom {
+    justify-self: start;
+  }
+
+  .hero__title-line--top {
+    font-size: clamp(64px, 8.7vw, 72px);
+  }
+
+  .hero__title-line--middle {
+    justify-self: center;
+    margin-top: -7px;
+    font-size: clamp(50px, 6.9vw, 57px);
+  }
+
+  .hero__title-line--bottom {
+    margin-top: -2px;
+    font-size: clamp(62px, 8.45vw, 70px);
+  }
+
+  .hero__description-wrap {
+    position: relative;
+    z-index: 13;
+    grid-template-columns: 2px 1fr;
+    gap: 12px;
+    width: 100%;
+    max-width: 430px;
+    margin: 23px 0 0;
+  }
+
+  .hero__description {
+    max-width: 405px;
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.62;
+    text-align: left;
+  }
+
+  /* Buttons sit lower and become one centered visual unit. */
+  .hero__actions {
+    position: relative;
+    z-index: 15;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+    max-width: 565px;
+    margin: 28px auto 0 0;
+  }
+
+  .hero__primary,
+  .hero__secondary {
+    min-height: 55px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .hero__secondary {
+    background: rgba(3, 25, 39, 0.52);
+    border-color: rgba(76, 215, 251, 0.2);
+  }
+
+  /* Presencial + online are centered as a single block. */
+  .hero__care {
+    position: relative;
+    z-index: 15;
+    grid-template-columns: 1fr 1px 1fr;
+    width: 100%;
+    max-width: 540px;
+    margin: 23px 0 0 12px;
+    padding: 14px 0;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 24, 37, 0.23),
+        rgba(3, 24, 37, 0.09),
+        rgba(3, 24, 37, 0.02)
+      );
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  .hero__care-item {
+    justify-content: center;
+  }
+
+  .hero__care-copy {
+    align-items: flex-start;
+  }
+
+  /* Stats move further down and fill the width visually. */
+  .hero__stats {
+    position: relative;
+    z-index: 15;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+    max-width: 640px;
+    margin: 28px auto 0;
+    padding: 0 8px;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 24, 37, 0.2),
+        rgba(3, 24, 37, 0.06),
+        rgba(3, 24, 37, 0.16)
+      );
+    border-top: 1px solid rgba(76, 215, 251, 0.08);
+    border-bottom: 1px solid rgba(76, 215, 251, 0.06);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  .hero__stat,
+  .hero__stat:first-child {
+    align-items: center;
+    padding: 12px 8px;
+    text-align: center;
+  }
+
+  .hero__stat-topline {
+    align-self: center;
+  }
+
+  .hero__stat > strong {
+    font-size: 17px;
+  }
+
+  /* CHARACTER */
+
+  .hero__visual {
+    position: absolute;
+    top: 45px;
+    right: -32px;
+    left: auto;
+    z-index: 6;
+    display: block;
+    width: 48%;
+    max-width: 390px;
+    min-height: 610px;
+    height: 610px;
+    margin: 0;
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  .hero__visual-aura {
+    top: 46%;
+    left: 58%;
+    width: 365px;
+    height: 455px;
+    opacity: 0.5;
+    filter: blur(86px);
+  }
+
+  .hero__character-wrap {
+    top: 49%;
+    right: -24px;
+    left: auto;
+    width: 390px;
+    height: 590px;
+    transform: translateY(-50%);
+  }
+
+  .hero__character {
+    height: 570px;
+    opacity: 0.47;
+    filter:
+      saturate(0.9)
+      brightness(0.94)
+      drop-shadow(0 24px 30px rgba(0, 0, 0, 0.22))
+      drop-shadow(0 0 24px rgba(16, 196, 245, 0.08));
+    -webkit-mask-image:
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.5) 15%,
+        #000 36%,
+        #000 100%
+      );
+    mask-image:
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.5) 15%,
+        #000 36%,
+        #000 100%
+      );
+  }
+
+  .hero__orbit,
+  .hero__orbit-dot,
+  .hero__signals,
+  .hero__seal,
+  .hero__vertical-word {
+    display: none;
+  }
+
+  /* Small right-side label lives with the character. */
+  .hero__visual-heading {
+    top: auto;
+    right: 20px;
+    bottom: 38px;
+    z-index: 14;
+    opacity: 0.7;
+  }
+
+  /* Motto uses the lower dead zone instead of leaving it empty. */
+  .hero__motto {
+    left: -88%;
+    bottom: 18px;
+    z-index: 16;
+    width: 190px;
+    padding: 12px 0 11px 15px;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 26, 40, 0.58),
+        rgba(3, 26, 40, 0.12),
+        transparent
+      );
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  .hero__motto strong {
+    font-size: 16px;
+  }
+
+  .hero__motto-small {
+    font-size: 7px;
+  }
+
+  /* Make the decorative word useful without creating a dark hole. */
+  .hero__background-word {
+    right: -34px;
+    bottom: 26px;
+    font-size: 128px;
+    opacity: 0.65;
+  }
+
+  .hero__mobile-character-ghost,
+  .hero__mobile-spotlight {
+    display: none;
+  }
+
+  /* Bottom strip sits immediately after the composition. */
+  .hero__strip {
+    position: relative;
+    z-index: 20;
+    margin-top: 0;
+  }
+
+  .hero__strip-inner {
+    min-height: 48px;
+    padding: 0 4px;
+  }
+
+  .hero__strip-inner > div {
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .hero__strip strong {
+    font-size: 8px;
+  }
+
+  .hero__strip span {
+    font-size: 5px;
+    letter-spacing: 0.11em;
+  }
+
+  .hero__strip-inner > i {
+    width: 16px;
+  }
+}
+
+/* =========================================
+   TABLET MOTTO · HIDDEN BY DEFAULT
+========================================= */
+
+.hero__tablet-motto {
+  display: none;
+}
+
+/* =========================================
+   IPAD MINI · VISIBILITY FIX
+   Keeps the character on the right without
+   covering CTA, care info, stats or motto.
+========================================= */
+
+@media (min-width: 721px) and (max-width: 820px) {
+  .hero__main {
+    min-height: 650px;
+  }
+
+  .hero__content {
+    padding-top: 48px;
+    padding-bottom: 22px;
+  }
+
+  .hero__title {
+    max-width: 62%;
+  }
+
+  .hero__description-wrap {
+    max-width: 400px;
+  }
+
+  .hero__actions {
+    max-width: 540px;
+  }
+
+  .hero__care {
+    max-width: 520px;
+    margin-left: 0;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 24, 37, 0.42),
+        rgba(3, 24, 37, 0.2),
+        rgba(3, 24, 37, 0.06)
+      );
+  }
+
+  .hero__stats {
+    max-width: 600px;
+    margin-top: 24px;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 24, 37, 0.46),
+        rgba(3, 24, 37, 0.2),
+        rgba(3, 24, 37, 0.32)
+      );
+  }
+
+  .hero__visual {
+    top: 74px;
+    right: -48px;
+    width: 44%;
+    max-width: 350px;
+    height: 540px;
+    min-height: 540px;
+    z-index: 5;
+  }
+
+  .hero__character-wrap {
+    top: 51%;
+    right: 18px;
+    width: 350px;
+    height: 525px;
+  }
+
+  .hero__character {
+    height: 510px;
+    opacity: 0.36;
+    filter:
+      saturate(0.9)
+      brightness(0.96)
+      drop-shadow(0 22px 28px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 0 22px rgba(16, 196, 245, 0.07));
+    -webkit-mask-image:
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.36) 15%,
+        #000 40%,
+        #000 100%
+      );
+    mask-image:
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.36) 15%,
+        #000 40%,
+        #000 100%
+      );
+  }
+
+  .hero__visual-aura {
+    left: 65%;
+    width: 320px;
+    height: 410px;
+    opacity: 0.38;
+  }
+
+  .hero__visual-heading {
+    right: 74px;
+    bottom: 24px;
+    opacity: 0.58;
+  }
+
+  /* The original motto lives inside the visual and was getting clipped. */
+  .hero__motto {
+    display: none;
+  }
+
+  /* Dedicated iPad motto: always visible and never behind the character. */
+  .hero__tablet-motto {
+    position: relative;
+    z-index: 18;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: fit-content;
+    max-width: 260px;
+    margin: 24px 0 0 18px;
+    padding: 10px 18px 11px 14px;
+    border-left: 2px solid #4bdafb;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 27, 42, 0.62),
+        rgba(3, 27, 42, 0.18),
+        transparent
+      );
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  .hero__tablet-motto-kicker {
+    margin-bottom: 4px;
+    color: rgba(81, 220, 252, 0.62);
+    font-size: 5px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .hero__tablet-motto-small {
+    color: rgba(255, 255, 255, 0.56);
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero__tablet-motto strong {
+    margin-top: 2px;
+    color: #67e2ff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-style: italic;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+  }
+
+  .hero__strip {
+    margin-top: 0;
+  }
+}
+
+/* =========================================
+   IPAD PRO / IPAD AIR LARGE · PORTRAIT
+   821px — 1180px
+   Recompone el hero para aprovechar la
+   pantalla: contenido al frente y personaje
+   integrado a la derecha, sin zonas muertas.
+========================================= */
+
+@media (min-width: 821px) and (max-width: 1180px) {
+  .hero {
+    min-height: auto;
+    padding-top: 78px;
+  }
+
+  .hero::after,
+  .hero__ghosts {
+    top: 78px;
+  }
+
+  .hero__main {
+    position: relative;
+    display: block;
+    min-height: 760px;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 12;
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 56px 0 30px;
+  }
+
+  .hero__eyebrow {
+    width: 64%;
+    max-width: 585px;
+    margin: 0 0 18px;
+  }
+
+  .hero__title {
+    width: 66%;
+    max-width: 610px;
+    margin: 0;
+  }
+
+  .hero__title-line--top {
+    font-size: clamp(72px, 7.8vw, 88px);
+  }
+
+  .hero__title-line--middle {
+    font-size: clamp(54px, 5.9vw, 68px);
+  }
+
+  .hero__title-line--bottom {
+    font-size: clamp(68px, 7.35vw, 84px);
+  }
+
+  .hero__description-wrap {
+    width: 62%;
+    max-width: 565px;
+    margin-top: 22px;
+  }
+
+  .hero__description {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .hero__actions {
+    width: 70%;
+    max-width: 650px;
+    margin-top: 22px;
+  }
+
+  .hero__primary,
+  .hero__secondary {
+    min-height: 64px;
+  }
+
+  .hero__care {
+    width: 73%;
+    max-width: 675px;
+    margin: 20px 0 0;
+    padding: 14px 0;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 24, 37, 0.48),
+        rgba(3, 24, 37, 0.25) 72%,
+        transparent
+      );
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .hero__stats {
+    position: relative;
+    z-index: 14;
+    width: 78%;
+    max-width: 720px;
+    margin: 22px 0 0;
+    padding: 15px 0 13px;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 24, 37, 0.5),
+        rgba(3, 24, 37, 0.22) 82%,
+        transparent
+      );
+  }
+
+  .hero__stat strong {
+    font-size: 22px;
+  }
+
+  .hero__stat span {
+    font-size: 6.5px;
+  }
+
+  .hero__stat small {
+    font-size: 5px;
+  }
+
+  /* PERSONAJE COMO APOYO VISUAL A LA DERECHA */
+
+  .hero__visual {
+    position: absolute;
+    top: 70px;
+    right: -42px;
+    z-index: 5;
+    width: 49%;
+    max-width: 520px;
+    height: 675px;
+    min-height: 675px;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  .hero__character-wrap {
+    top: 51%;
+    right: 5px;
+    left: auto;
+    width: 500px;
+    height: 650px;
+    transform: translateY(-50%);
+  }
+
+  .hero__character {
+    width: auto;
+    height: 635px;
+    opacity: 0.39;
+    filter:
+      saturate(0.96)
+      brightness(0.98)
+      drop-shadow(0 28px 35px rgba(0, 0, 0, 0.22))
+      drop-shadow(0 0 28px rgba(20, 195, 239, 0.07));
+    -webkit-mask-image:
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.18) 9%,
+        rgba(0, 0, 0, 0.82) 30%,
+        #000 48%,
+        #000 100%
+      );
+    mask-image:
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.18) 9%,
+        rgba(0, 0, 0, 0.82) 30%,
+        #000 48%,
+        #000 100%
+      );
+  }
+
+  .hero__visual-aura {
+    top: 51%;
+    left: 61%;
+    width: 430px;
+    height: 520px;
+    opacity: 0.36;
+  }
+
+  .hero__orbit,
+  .hero__orbit-dot,
+  .hero__signals,
+  .hero__seal,
+  .hero__vertical-word {
+    display: none;
+  }
+
+  .hero__visual-heading {
+    top: auto;
+    right: 55px;
+    bottom: 50px;
+    z-index: 12;
+    opacity: 0.6;
+  }
+
+  .hero__motto {
+    display: none;
+  }
+
+  /* MOTTO APROVECHA EL ESPACIO INFERIOR IZQUIERDO */
+
+  .hero__tablet-motto {
+    position: relative;
+    z-index: 18;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: fit-content;
+    min-width: 235px;
+    margin: 28px 0 0 18px;
+    padding: 12px 26px 13px 16px;
+    border-left: 2px solid #4bdafb;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 27, 42, 0.68),
+        rgba(3, 27, 42, 0.22),
+        transparent
+      );
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  .hero__tablet-motto-kicker {
+    margin-bottom: 4px;
+    color: rgba(81, 220, 252, 0.66);
+    font-size: 6px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .hero__tablet-motto-small {
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero__tablet-motto strong {
+    margin-top: 3px;
+    color: #67e2ff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 21px;
+    font-style: italic;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+  }
+
+  .hero__background-word {
+    right: -60px;
+    bottom: 18px;
+    font-size: 160px;
+    opacity: 0.5;
+  }
+
+  .hero__mobile-character-ghost,
+  .hero__mobile-spotlight {
+    display: none;
+  }
+
+  .hero__strip {
+    position: relative;
+    z-index: 20;
+    margin-top: 0;
+  }
+
+  .hero__strip-inner {
+    min-height: 54px;
+    padding: 0 12px;
+  }
+
+  .hero__strip-inner > div {
+    justify-content: center;
+  }
+
+  .hero__strip strong {
+    font-size: 9px;
+  }
+
+  .hero__strip span {
+    font-size: 5.5px;
+    letter-spacing: 0.12em;
+  }
+}
+
+/* iPad Pro 11 / 12.9 portrait, un poco más amplio */
+@media (min-width: 1000px) and (max-width: 1180px) {
+  .hero__main {
+    min-height: 800px;
+  }
+
+  .hero__content {
+    padding-top: 64px;
+  }
+
+  .hero__visual {
+    top: 82px;
+    right: -30px;
+    width: 48%;
+    max-width: 540px;
+    height: 690px;
+  }
+
+  .hero__character-wrap {
+    right: 8px;
+    width: 520px;
+    height: 670px;
+  }
+
+  .hero__character {
+    height: 655px;
+    opacity: 0.4;
   }
 }

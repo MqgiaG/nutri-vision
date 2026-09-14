@@ -51,6 +51,11 @@ const rightSignals = [
   },
 ]
 
+const mobileSignals = [
+  ...leftSignals,
+  ...rightSignals,
+]
+
 const stats = [
   {
     value: '3 años',
@@ -370,6 +375,14 @@ function Hero() {
             ease: [0.22, 1, 0.36, 1],
           }}
         >
+          <div className="hero__mobile-character-ghost" aria-hidden="true">
+            <img
+              src={alejandroHero}
+              alt=""
+              className="hero__mobile-character-image"
+            />
+          </div>
+
           <div className="hero__eyebrow">
             <span className="hero__eyebrow-line" />
 
@@ -535,6 +548,72 @@ function Hero() {
                 </div>
               ),
             )}
+          </div>
+
+          <div className="hero__tablet-motto">
+            <span className="hero__tablet-motto-kicker">
+              NVS / 01
+            </span>
+
+            <span className="hero__tablet-motto-small">
+              Disciplina hoy
+            </span>
+
+            <strong>
+              Resultados mañana.
+            </strong>
+          </div>
+
+          <div className="hero__mobile-spotlight">
+            <div className="hero__mobile-spotlight-copy">
+              <span className="hero__mobile-spotlight-kicker">
+                NVS / 01
+              </span>
+
+              <strong>
+                Disciplina hoy,
+                <br />
+                resultados mañana.
+              </strong>
+
+              <p>
+                Nutrición personalizada con estrategia,
+                hábitos sostenibles y seguimiento cercano
+                para avanzar con propósito.
+              </p>
+            </div>
+
+            <div className="hero__mobile-signals-grid">
+              {mobileSignals.map(
+                ({
+                  icon: Icon,
+                  title,
+                  text,
+                }) => (
+                  <div
+                    className="hero__mobile-signal"
+                    key={`mobile-${title}`}
+                  >
+                    <span className="hero__mobile-signal-icon">
+                      <Icon
+                        size={18}
+                        strokeWidth={1.7}
+                      />
+                    </span>
+
+                    <div className="hero__mobile-signal-copy">
+                      <strong>
+                        {title}
+                      </strong>
+
+                      <span>
+                        {text}
+                      </span>
+                    </div>
+                  </div>
+                ),
+              )}
+            </div>
           </div>
         </motion.div>
 

@@ -79,7 +79,7 @@ function Header() {
     }
 
     const handleResize = () => {
-      if (window.innerWidth > 980) {
+      if (window.innerWidth > 1120) {
         setIsMenuOpen(false)
       }
     }
@@ -98,7 +98,7 @@ function Header() {
   }, [])
 
   useEffect(() => {
-    if (window.innerWidth <= 980) {
+    if (window.innerWidth <= 1120) {
       document.body.style.overflow = isMenuOpen
         ? 'hidden'
         : ''
