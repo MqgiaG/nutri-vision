@@ -1,0 +1,387 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: #ffffff;
+
+  /*
+    IMPORTANTE:
+    completamente opaco para que NO se vea la web debajo.
+  */
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(13, 151, 207, 0.13),
+      transparent 31%
+    ),
+    linear-gradient(
+      145deg,
+      #02080d 0%,
+      #06141d 48%,
+      #02090e 100%
+    );
+}
+
+.loader__background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* NVS gigante de fondo */
+
+.loader__giant-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: rgba(255, 255, 255, 0.018);
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  font-size: clamp(250px, 37vw, 640px);
+  font-weight: 900;
+  line-height: 0.7;
+  letter-spacing: -0.09em;
+  transform: translate(-50%, -50%);
+  user-select: none;
+}
+
+/* Diagonales tipo branding deportivo */
+
+.loader__stripe {
+  position: absolute;
+  width: 55vw;
+  height: 2px;
+  opacity: 0.55;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(64, 215, 247, 0.28),
+    transparent
+  );
+  transform: rotate(-16deg);
+}
+
+.loader__stripe--one {
+  top: 21%;
+  left: -14%;
+}
+
+.loader__stripe--two {
+  top: 66%;
+  right: -12%;
+}
+
+.loader__stripe--three {
+  bottom: 7%;
+  left: 10%;
+  opacity: 0.22;
+}
+
+/* Textura súper ligera */
+
+.loader__noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image:
+    repeating-linear-gradient(
+      115deg,
+      transparent 0,
+      transparent 89px,
+      rgba(255, 255, 255, 0.055) 90px,
+      transparent 91px
+    );
+}
+
+.loader__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  background: rgba(30, 189, 229, 0.1);
+  filter: blur(110px);
+  transform: translate(-50%, -50%);
+}
+
+/* =========================================
+   CONTENIDO
+========================================= */
+
+.loader__content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  width: min(460px, calc(100% - 44px));
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================================
+   KICKER
+========================================= */
+
+.loader__kicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  margin-bottom: 16px;
+  color: rgba(218, 238, 246, 0.42);
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  font-size: 5.5px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+}
+
+.loader__kicker span {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #46daf8;
+  box-shadow: 0 0 8px rgba(70, 218, 248, 0.6);
+}
+
+/* =========================================
+   LOGO STAGE
+========================================= */
+
+.loader__logo-stage {
+  position: relative;
+  display: grid;
+  width: 340px;
+  height: 300px;
+  place-items: center;
+}
+
+/* Marco deportivo / angular */
+
+.loader__logo-border {
+  position: absolute;
+  inset: 15px 4px;
+  border:
+    1px solid
+    rgba(70, 218, 248, 0.07);
+  clip-path: polygon(
+    9% 0,
+    100% 0,
+    91% 100%,
+    0 100%
+  );
+}
+
+.loader__logo-border::before,
+.loader__logo-border::after {
+  position: absolute;
+  content: '';
+  background: #49daf8;
+  box-shadow:
+    0 0 14px rgba(73, 218, 248, 0.55);
+}
+
+.loader__logo-border::before {
+  top: -1px;
+  left: 9%;
+  width: 70px;
+  height: 2px;
+}
+
+.loader__logo-border::after {
+  right: 8%;
+  bottom: -1px;
+  width: 48px;
+  height: 2px;
+}
+
+/* Logo */
+
+.loader__logo-wrap {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  width: 280px;
+  place-items: center;
+  overflow: hidden;
+}
+
+.loader__logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter:
+    drop-shadow(
+      0 17px 34px rgba(0, 0, 0, 0.45)
+    )
+    drop-shadow(
+      0 0 15px rgba(16, 156, 220, 0.13)
+    );
+}
+
+/* Destello solamente sobre logo */
+
+.loader__logo-shine {
+  position: absolute;
+  top: -30%;
+  left: 0;
+  width: 22%;
+  height: 160%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(127, 239, 255, 0.18),
+    transparent
+  );
+  filter: blur(3px);
+  pointer-events: none;
+  transform: rotate(13deg);
+}
+
+/* Golpe cyan debajo del logo */
+
+.loader__impact {
+  position: absolute;
+  right: 32px;
+  bottom: 31px;
+  left: 32px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #4bdafb 20%,
+    #4bdafb 80%,
+    transparent
+  );
+  box-shadow:
+    0 0 16px rgba(75, 218, 251, 0.45);
+  transform-origin: center;
+}
+
+/* =========================================
+   LOADING
+========================================= */
+
+.loader__loading {
+  width: 280px;
+  margin-top: 3px;
+}
+
+.loader__loading-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: rgba(220, 239, 246, 0.31);
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  font-size: 5.5px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+}
+
+.loader__loading-head span:last-child {
+  color: #4bdafb;
+}
+
+.loader__track {
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.loader__progress {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #0576d4 0%,
+    #22bde8 52%,
+    #75ecfa 100%
+  );
+  box-shadow:
+    0 0 12px rgba(57, 210, 243, 0.4);
+  transform-origin: left;
+}
+
+/* Flash cinemático */
+
+.loader__flash {
+  position: absolute;
+  top: -40%;
+  left: 0;
+  z-index: 7;
+  width: 12vw;
+  height: 190%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(96, 229, 255, 0.06),
+    transparent
+  );
+  filter: blur(6px);
+  pointer-events: none;
+  transform: rotate(14deg);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 520px) {
+  .loader__content {
+    width: calc(100% - 34px);
+  }
+
+  .loader__kicker {
+    gap: 7px;
+    margin-bottom: 11px;
+    font-size: 4.7px;
+  }
+
+  .loader__logo-stage {
+    width: 290px;
+    height: 255px;
+  }
+
+  .loader__logo-wrap {
+    width: 235px;
+  }
+
+  .loader__loading {
+    width: 235px;
+  }
+
+  .loader__loading-head {
+    font-size: 4.7px;
+  }
+
+  .loader__giant-text {
+    font-size: 72vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader__logo-shine,
+  .loader__flash {
+    display: none;
+  }
+}
