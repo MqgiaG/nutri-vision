@@ -1,0 +1,53 @@
+
+name: Deploy NVS to Namecheap
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nvs-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build and deploy NVS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar codigo del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Compilar NVS para produccion
+        run: npm run build
+
+      - name: Publicar en Namecheap mediante FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+
+          protocol: ftps
+          port: 21
+          security: strict
+
+          local-dir: ./dist/
+          server-dir: ./
+
+          dangerous-clean-slate: false
