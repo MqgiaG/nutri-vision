@@ -1,458 +1,579 @@
-import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+
+import { useEffect, useRef, useState } from 'react'
 import {
-  ArrowUpRight,
-  ChevronLeft,
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+} from 'framer-motion'
+
+import {
+  Apple,
+  BadgeCheck,
+  Brain,
   ChevronRight,
-  PlayCircle,
+  Dumbbell,
+  HeartHandshake,
+  Leaf,
   Quote,
+  ShieldCheck,
+  Sparkles,
+  Target,
   X,
 } from 'lucide-react'
 
 import './Testimonials.css'
 
+/*
+  NVS · Testimonios de pacientes
+
+  Se conservan los ocho testimonios anteriores
+  y se agrega el de Mary Piña como número 09.
+
+  Los textos están editados para su presentación web.
+  Antes de publicar, confirma con cada paciente la
+  autorización para mostrar su testimonio y nombre.
+*/
+
 const testimonials = [
   {
-    id: 1,
-    category: 'Cambio de hábitos',
-    patient: 'Paciente NVS',
-    title: 'Más que ver cambios en la báscula, hoy me siento diferente.',
+    id: '01',
+    name: 'Gabriela',
+    icon: 'target',
+    tag: 'Testimonio destacado',
+    title: 'Un cambio físico, mental y sostenible.',
     excerpt:
-      'Desde la primera consulta me sentí en confianza, escuchada y con la seguridad de estar en buenas manos.',
-    fullText:
-      'En mi proceso de pérdida de peso y mejora de hábitos, el acompañamiento ha sido fundamental. Desde la primera consulta me sentí en confianza, escuchada y con la seguridad de estar en buenas manos. Más que ver cambios en la báscula, hoy me siento diferente, más segura y orgullosa de todo lo que he logrado.',
-    videoSrc: '',
+      'Gabriela llegó buscando un cambio estético, pero durante su proceso también fortaleció su relación con la comida, su disciplina y la forma en la que entiende su cuerpo.',
+    body: [
+      'Hola, mi nombre es Gabriela y me gustaría compartir un poco de todo lo que he logrado al pertenecer a Nutri Visión Synergy.',
+
+      'Si tuviera que resumir mi proceso, lo dividiría en tres partes: decisión, proceso y evolución.',
+
+      'Decidí iniciar un asesoramiento porque quería cambiar mi cuerpo desde un enfoque estético, sentirme mejor y aprender cómo hacerlo correctamente. Por eso me acerqué a Javier Alejandro Hernández Ortiz.',
+
+      'Desde la primera consulta entendí que no se trataba solamente de recibir un plan alimenticio y una guía de ejercicios. También aprendí sobre la importancia de construir una relación sana con la comida, entender mi cuerpo y reconocer que cada proceso es diferente.',
+
+      'Algo que valoro muchísimo es que su enfoque se adapta a la vida real. No propone alimentos extraños o costosos, sino opciones que consideran nuestros gustos, necesidades y posibilidades económicas.',
+
+      'Mi proceso no ha sido lineal, porque también influyen el trabajo y las situaciones de la vida diaria. Aun así, siempre he sentido acompañamiento. Si avanzo despacio, él va conmigo; si avanzo rápido, también. No permite que pierda de vista mi objetivo.',
+
+      'Con el tiempo entendí que mi meta no era solamente cambiar físicamente. También he mejorado mi relación con la comida y aprendido a medir porciones, preparar mis alimentos, realizar los ejercicios correctamente e identificar lo que me aporta cada alimento.',
+
+      'Hoy veo este proceso como un aprendizaje continuo. No se trata de llegar a un final, sino de seguir construyendo hábitos para cuidar mi cuerpo y mi mente.',
+    ],
+    highlights: [
+      'Mejoró su relación con la comida',
+      'Aprendió sobre porciones y aportes nutricionales',
+      'Desarrolló disciplina y constancia',
+      'Reconoció que cada cuerpo tiene su propio proceso',
+    ],
   },
   {
-    id: 2,
-    category: 'Educación nutricional',
-    patient: 'Paciente NVS',
-    title: 'Aprendí a crear hábitos que realmente puedo mantener.',
+    id: '02',
+    name: 'Eva Rodríguez',
+    icon: 'sparkles',
+    tag: 'Nutrición deportiva',
+    title: 'Un plan adaptado a mi deporte y a mi estilo de vida.',
     excerpt:
-      'Más allá de recibir una dieta y una rutina, aprendí a entender mejor mi alimentación y mis decisiones.',
-    fullText:
-      'Mi experiencia ha sido excelente. Más allá de recibir una dieta y una rutina, aprendí a entender mejor mi alimentación y a crear hábitos que realmente puedo mantener día con día. El trato siempre ha sido amable, profesional y paciente, y eso hace toda la diferencia durante el proceso.',
-    videoSrc: '',
+      'Eva destaca que su plan se adaptó a sus objetivos, su deporte y sus horarios laborales. También comparte los cambios que ha notado en su energía y condición física.',
+    body: [
+      'En mi experiencia, ha sido un excelente nutriólogo deportivo. Siempre he notado su profesionalismo y conocimiento.',
+
+      'Ha adaptado todo a mis objetivos, a mi deporte y, sobre todo, a mi estilo de vida, incluyendo mis horarios laborales.',
+
+      'He notado más energía, mejor condición y cambios físicos con las rutinas y el plan que me ofrece.',
+
+      'Más allá del profesionalismo, es una persona muy humana. Explica con entusiasmo todo lo que tengo duda y me motiva bastante durante el proceso.',
+    ],
+    highlights: [
+      'Plan adaptado a sus objetivos y deporte',
+      'Consideración de sus horarios laborales',
+      'Cambios percibidos en energía y condición',
+      'Acompañamiento y resolución de dudas',
+    ],
   },
   {
-    id: 3,
-    category: 'Confianza y constancia',
-    patient: 'Paciente NVS',
-    title: 'Hoy no solo veo resultados físicos, también me siento más seguro.',
+    id: '03',
+    name: 'Erik Alderete',
+    icon: 'badge',
+    tag: 'Seguimiento personalizado',
+    title: 'Un seguimiento que se adapta a mis necesidades.',
     excerpt:
-      'Llegué con muchas inseguridades y miedo de volver a empezar, pero desde la primera consulta me sentí escuchado.',
-    fullText:
-      'Llegué con muchas inseguridades y miedo de volver a empezar, pero desde la primera consulta me sentí cómodo y escuchado. El seguimiento, la orientación y la motivación constante me ayudaron a transformar mi proceso. Hoy no solo veo resultados físicos, también me siento más seguro, agradecido y motivado.',
-    videoSrc: '',
+      'Erik destaca la accesibilidad del acompañamiento, la adaptación a sus necesidades y el seguimiento de sus medidas corporales.',
+    body: [
+      'En mi experiencia con mi nutriólogo Ale, lo recomendaría muchísimo.',
+
+      'Es accesible para estudiantes y se acopla a tus necesidades.',
+
+      'Además, da un seguimiento preciso de tus medidas corporales y adapta el acompañamiento a tu alimentación.',
+
+      'Por eso y más, considero que es una excelente opción tener un seguimiento con él.',
+    ],
+    highlights: [
+      'Acompañamiento accesible para estudiantes',
+      'Adaptación a las necesidades individuales',
+      'Seguimiento de medidas corporales',
+      'Orientación alimentaria personalizada',
+    ],
   },
   {
-    id: 4,
-    category: 'Bienestar integral',
-    patient: 'Paciente NVS',
-    title: 'He notado cambios en mi físico, energía y relación con la comida.',
+    id: '04',
+    name: 'Alondra Padrón',
+    icon: 'heart',
+    tag: 'Cambio de hábitos',
+    title: 'Confianza, empatía y hábitos que permanecen.',
     excerpt:
-      'El plan fue personalizado, práctico y pensado para mi estilo de vida desde el inicio.',
-    fullText:
-      'Desde la primera consulta sentí confianza. Todo el plan fue personalizado, práctico y pensado para mi estilo de vida. Lo que más valoro es el seguimiento y la forma en la que siempre resuelve dudas y motiva. He notado cambios no solo en mi físico, sino también en mi energía, digestión y relación con la comida.',
-    videoSrc: '',
+      'Alondra comparte que el acompañamiento le ayudó a construir hábitos alimenticios, sentirse más segura y reconocer cambios que van más allá de la báscula.',
+    body: [
+      'En mi proceso de pérdida de peso y mejora de hábitos alimenticios y físicos, el acompañamiento ha sido una pieza fundamental.',
+
+      'Desde la primera consulta me sentí muy cómoda y sabía que podía confiar en ti y en tus conocimientos.',
+
+      'Recomiendo tu trabajo porque eres una persona que me ha acompañado, motivado y apoyado durante todo este camino. Tu empatía y calidez humana me han hecho confiar más en mí.',
+
+      'Poco a poco he aprendido a llevar una mejor alimentación, conocer mis necesidades y crear hábitos que pueda mantener día con día.',
+
+      'Más que cambios o números en la báscula, hoy me siento diferente y muy orgullosa de lo que he conseguido.',
+    ],
+    highlights: [
+      'Mayor confianza durante su proceso',
+      'Construcción de hábitos alimenticios',
+      'Acompañamiento y motivación',
+      'Cambios que van más allá del peso',
+    ],
   },
   {
-    id: 5,
-    category: 'Cambio personal',
-    patient: 'Paciente NVS',
-    title: 'Ha sido un cambio físico, emocional y personal.',
+    id: '05',
+    name: 'Baresi Rivas Ortiz',
+    icon: 'shield',
+    tag: 'Educación nutricional',
+    title: 'Mucho más que recibir una dieta y una rutina.',
     excerpt:
-      'Aprendí a tener una mejor relación con la comida, a ser más constante y a disfrutar el proceso.',
-    fullText:
-      'Mi experiencia ha sido muy positiva y ha significado mucho más que solo cambios físicos. Gracias al acompañamiento, he aprendido a tener una mejor relación con la comida, a ser más constante y a disfrutar el proceso. He ganado seguridad, confianza y motivación. Sin duda, ha sido un cambio físico, emocional y personal.',
-    videoSrc: '',
+      'Baresi destaca que aprendió a comprender mejor su alimentación y reconoce la atención amable, profesional y paciente durante sus consultas.',
+    body: [
+      'Mi experiencia con Nutri Visión Synergy y Alejandro ha sido excelente.',
+
+      'Más allá de solo darme una dieta y una rutina, me ha enseñado a entender lo que como y a adquirir conocimientos de nutrición que antes no tenía.',
+
+      'El trato siempre ha sido de 10: muy amable, profesional y paciente para resolver cada duda.',
+
+      'Definitivamente, el acompañamiento del nutriólogo es clave y hace una gran parte del trabajo. Pero también me queda claro que, como paciente, hay que poner de nuestra parte y ser constantes para que los resultados se vean.',
+    ],
+    highlights: [
+      'Aprendizaje sobre alimentación',
+      'Atención amable y paciente',
+      'Resolución de dudas',
+      'Mayor compromiso con el proceso',
+    ],
   },
   {
-    id: 6,
-    category: 'Relación con la alimentación',
-    patient: 'Paciente NVS',
-    title: 'Aprendí a comer mejor, romper mitos y dejar atrás muchos miedos.',
+    id: '06',
+    name: 'Luis Manuel Alva González',
+    icon: 'dumbbell',
+    tag: 'Recomposición corporal',
+    title: 'De la inseguridad a disfrutar mi proceso.',
     excerpt:
-      'Este proceso me permitió mejorar mis hábitos y comprender mejor mi alimentación.',
-    fullText:
-      'Aprendí a comer mejor, a romper mitos y a transformar miedos y creencias sobre la dieta. Este proceso no solo me ayudó a mejorar mis hábitos, también me permitió comprender mejor mi alimentación y avanzar con mayor seguridad. Poco a poco he dejado atrás inseguridades, miedos y pensamientos que me frenaban.',
-    videoSrc: '',
+      'Luis Manuel comparte que llegó con inseguridades sobre su físico y que el acompañamiento le ayudó a ganar confianza y motivación.',
+    body: [
+      'Llegué al consultorio con muchas inseguridades relacionadas con mi físico y con miedo de volver a empezar.',
+
+      'Desde el primer contacto me sentí cómodo para expresar mi proceso anterior y recibir orientación para comenzar de nuevo.',
+
+      'Lo que antes era una inseguridad al subirme a la báscula se convirtió en motivación al reconocer los avances que iba teniendo en cada consulta.',
+
+      'Con el seguimiento aprendí a disfrutar más el proceso y a relacionarme de otra manera con la alimentación y el ejercicio.',
+
+      'Hoy me siento agradecido por el acompañamiento y por la motivación que recibo para continuar trabajando en mis objetivos.',
+    ],
+    highlights: [
+      'Mayor seguridad personal',
+      'Motivación a lo largo del proceso',
+      'Seguimiento de su recomposición corporal',
+      'Mejor relación con sus objetivos físicos',
+    ],
+  },
+  {
+    id: '07',
+    name: 'Alex Olvera Vecino',
+    icon: 'brain',
+    tag: 'Atención personalizada',
+    title: 'Un plan práctico para mi día a día.',
+    excerpt:
+      'Alex valora la confianza desde la primera consulta, la adaptación a sus horarios y el seguimiento cercano durante su proceso.',
+    body: [
+      'Mi experiencia con mi nutriólogo ha sido excelente de principio a fin.',
+
+      'Desde la primera consulta me sentí en confianza. Se tomó el tiempo de explicarme todo y de entender mis horarios.',
+
+      'Nada de dietas imposibles: todo el plan fue muy personalizado y práctico para mi día a día.',
+
+      'Lo que más valoro es el seguimiento. Siempre está al pendiente, resuelve dudas y te motiva cuando lo necesitas.',
+
+      'He notado cambios no solo en los músculos, sino también en mi energía, mi digestión y mi relación con la comida.',
+    ],
+    highlights: [
+      'Plan adaptado a sus horarios',
+      'Acompañamiento cercano',
+      'Resolución de dudas',
+      'Cambios percibidos en su bienestar',
+    ],
+  },
+  {
+    id: '08',
+    name: 'Ariana Camarillo',
+    icon: 'apple',
+    tag: 'Bienestar integral',
+    title: 'Mucho más que cambios físicos.',
+    excerpt:
+      'Ariana describe un proceso en el que ha aprendido a cuidar su alimentación, ser constante y sentirse con más seguridad y confianza.',
+    body: [
+      'Quiero agradecerte por todo el acompañamiento que me has dado durante este proceso.',
+
+      'Mi experiencia contigo ha sido muy bonita y ha significado mucho más que solamente ver cambios físicos.',
+
+      'Gracias a tu orientación he aprendido a tener una mejor relación con la comida, a ser más disciplinada y constante, pero también a disfrutar el proceso sin sentir que estoy haciendo algo imposible de mantener.',
+
+      'Físicamente he notado cambios que me hacen sentir muy feliz, pero creo que lo más importante ha sido cómo ha cambiado la manera en la que me veo y me siento conmigo misma.',
+
+      'He ganado mucha más seguridad, confianza y motivación.',
+
+      'También agradezco mucho tu paciencia, tu disposición para resolver mis dudas y la manera en la que siempre me motivas a seguir adelante.',
+    ],
+    highlights: [
+      'Mejor relación con la comida',
+      'Mayor disciplina y constancia',
+      'Más confianza y seguridad personal',
+      'Acompañamiento durante su proceso',
+    ],
+  },
+
+  // NUEVO TESTIMONIO · MARY PIÑA
+
+  {
+    id: '09',
+    name: 'Mary Piña',
+    icon: 'leaf',
+    tag: 'Hábitos alimenticios',
+    title: 'Aprendí a comer y a dejar atrás mis miedos.',
+    excerpt:
+      'Mary cuenta que aprendió a comprender qué, cómo y cuánto comer. Su proceso también le ha ayudado a superar inseguridades y construir hábitos para ella y su familia.',
+    body: [
+      'Alejandro no es un nutricionista más. Con él aprendí a comer, a romper mitos y a transformar miedos y creencias sobre la dieta.',
+
+      'Cuando comencé con él, hace ahora un año, me enseñó qué, cómo y cuánto comer. Esa ha sido la clave para incorporar en mi vida nuevos hábitos alimenticios, que no solo he aplicado yo, sino también toda mi familia.',
+
+      'Su comprensión y paciencia hacen que este camino sea más llevadero y también un descubrimiento de uno mismo.',
+
+      'Estuve mucho tiempo en mi zona de confort hasta que me di cuenta de que el tiempo estaba pasando y mi sedentarismo no me llevaría a nada bueno. Por ello, busqué ayuda y encontré más de lo que esperaba.',
+
+      'No es fácil, pero con alguien que me guía en el camino y comprende cómo me siento, he ido dejando atrás inseguridades, miedos, pensamientos irracionales y muchos complejos.',
+
+      'Día con día voy pisando más fuerte mientras compruebo que quererme y cuidarme es mi mejor y primera opción.',
+    ],
+    highlights: [
+      'Aprendió qué, cómo y cuánto comer',
+      'Incorporó hábitos junto con su familia',
+      'Encontró acompañamiento y paciencia',
+      'Ha trabajado en superar miedos e inseguridades',
+    ],
   },
 ]
 
+const iconMap = {
+  target: Target,
+  sparkles: Sparkles,
+  badge: BadgeCheck,
+  heart: HeartHandshake,
+  shield: ShieldCheck,
+  dumbbell: Dumbbell,
+  brain: Brain,
+  apple: Apple,
+  leaf: Leaf,
+}
+
 function Testimonials() {
-  const [showAll, setShowAll] = useState(false)
-  const [activeIndex, setActiveIndex] = useState(null)
+  const [activeItem, setActiveItem] = useState(null)
 
-  const visibleTestimonials = showAll
-    ? testimonials
-    : testimonials.slice(0, 3)
+  const dialogRef = useRef(null)
+  const closeButtonRef = useRef(null)
+  const triggerRef = useRef(null)
 
-  const activeTestimonial =
-    activeIndex !== null ? testimonials[activeIndex] : null
+  const reduceMotion = useReducedMotion()
 
-  const openTestimonial = (id) => {
-    const index = testimonials.findIndex(
-      (testimonial) => testimonial.id === id,
-    )
-
-    setActiveIndex(index)
+  const openModal = (item) => {
+    triggerRef.current = document.activeElement
+    setActiveItem(item)
   }
 
-  const closeTestimonial = () => {
-    setActiveIndex(null)
-  }
-
-  const showPrevious = () => {
-    setActiveIndex((currentIndex) => {
-      if (currentIndex === null) return null
-
-      return currentIndex === 0
-        ? testimonials.length - 1
-        : currentIndex - 1
-    })
-  }
-
-  const showNext = () => {
-    setActiveIndex((currentIndex) => {
-      if (currentIndex === null) return null
-
-      return currentIndex === testimonials.length - 1
-        ? 0
-        : currentIndex + 1
-    })
+  const closeModal = () => {
+    setActiveItem(null)
   }
 
   useEffect(() => {
-    if (activeIndex === null) return undefined
-
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        setActiveIndex(null)
-      }
-
-      if (event.key === 'ArrowLeft') {
-        setActiveIndex((currentIndex) =>
-          currentIndex === 0
-            ? testimonials.length - 1
-            : currentIndex - 1,
-        )
-      }
-
-      if (event.key === 'ArrowRight') {
-        setActiveIndex((currentIndex) =>
-          currentIndex === testimonials.length - 1
-            ? 0
-            : currentIndex + 1,
-        )
-      }
-    }
+    if (!activeItem) return undefined
 
     const previousOverflow = document.body.style.overflow
 
     document.body.style.overflow = 'hidden'
+    closeButtonRef.current?.focus()
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        closeModal()
+      }
+
+      if (event.key === 'Tab') {
+        event.preventDefault()
+        closeButtonRef.current?.focus()
+      }
+    }
+
     window.addEventListener('keydown', handleKeyDown)
 
     return () => {
       document.body.style.overflow = previousOverflow
       window.removeEventListener('keydown', handleKeyDown)
+
+      triggerRef.current?.focus()
     }
-  }, [activeIndex])
+  }, [activeItem])
 
   return (
-    <section className="testimonials">
-      <motion.div
-        className="testimonials__top"
-        initial={{ opacity: 0, y: 22 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{
-          duration: 0.55,
-          ease: 'easeOut',
-        }}
-      >
-        <div>
-          <span className="testimonials__label">
-            EXPERIENCIAS DE PACIENTES
-          </span>
+    <section
+      className="testimonials"
+      aria-labelledby="testimonials-heading"
+    >
+      {/* ENCABEZADO */}
 
-          <h3 className="testimonials__heading">
-            Experiencias que forman parte
-            <span> del proceso NVS.</span>
-          </h3>
+      <header className="testimonials__header">
+        <div className="testimonials__eyebrow">
+          <span />
+
+          EXPERIENCIAS REALES
+
+          <span />
         </div>
 
-        <p className="testimonials__description">
-          Cada testimonio refleja una experiencia individual durante el
-          acompañamiento nutricional, desde la construcción de hábitos hasta
-          una mejor comprensión de la alimentación.
+        <h3 id="testimonials-heading">
+          TESTIMONIOS QUE HABLAN
+          <br />
+
+          <strong>DEL PROCESO COMPLETO.</strong>
+        </h3>
+
+        <p>
+          Cada persona tiene una historia diferente.
+          Conoce las experiencias que nuestros pacientes
+          han compartido sobre su acompañamiento.
         </p>
-      </motion.div>
+      </header>
+
+      {/* NUEVE TESTIMONIOS */}
 
       <div className="testimonials__grid">
-        <AnimatePresence initial={false}>
-          {visibleTestimonials.map((testimonial, index) => (
+        {testimonials.map((item, index) => {
+          const Icon = iconMap[item.icon] || Quote
+
+          return (
             <motion.article
-              className="testimonial-card"
-              key={testimonial.id}
-              layout
-              initial={{
-                opacity: 0,
-                y: 24,
-              }}
-              animate={{
+              key={item.id}
+              className="testimonials__card"
+              initial={
+                reduceMotion
+                  ? false
+                  : {
+                      opacity: 0,
+                      y: 18,
+                    }
+              }
+              whileInView={{
                 opacity: 1,
                 y: 0,
               }}
-              exit={{
-                opacity: 0,
-                y: 16,
+              viewport={{
+                once: true,
+                amount: 0.12,
               }}
               transition={{
-                duration: 0.4,
-                delay: index < 3 ? index * 0.06 : 0,
-                ease: 'easeOut',
+                duration: reduceMotion ? 0 : 0.5,
+                delay: reduceMotion
+                  ? 0
+                  : Math.min(index % 3, 2) * 0.06,
               }}
             >
-              <div className="testimonial-card__top">
-                <span className="testimonial-card__number">
-                  {String(testimonial.id).padStart(2, '0')}
-                </span>
-
-                <span className="testimonial-card__quote">
-                  <Quote
-                    size={18}
-                    strokeWidth={1.7}
-                  />
-                </span>
+              <div className="testimonials__card-top">
+                <span>REFERENCIA / {item.id}</span>
+                <span>{item.tag}</span>
               </div>
 
-              <div className="testimonial-card__content">
-                <span className="testimonial-card__category">
-                  {testimonial.category}
-                </span>
-
-                <h4 className="testimonial-card__title">
-                  “{testimonial.title}”
-                </h4>
-
-                <p className="testimonial-card__excerpt">
-                  {testimonial.excerpt}
-                </p>
-              </div>
-
-              <div className="testimonial-card__footer">
-                <div className="testimonial-card__patient">
-                  <span className="testimonial-card__avatar">
-                    NVS
-                  </span>
-
-                  <div>
-                    <strong>{testimonial.patient}</strong>
-                    <span>Testimonio autorizado</span>
-                  </div>
+              <div className="testimonials__profile">
+                <div
+                  className="testimonials__avatar"
+                  aria-hidden="true"
+                >
+                  <Icon size={22} strokeWidth={1.8} />
                 </div>
 
-                <button
-                  className="testimonial-card__button"
-                  type="button"
-                  onClick={() =>
-                    openTestimonial(testimonial.id)
-                  }
-                  aria-label={`Abrir experiencia ${testimonial.id}`}
-                >
-                  {testimonial.videoSrc ? (
-                    <PlayCircle
-                      size={17}
-                      strokeWidth={1.8}
-                    />
-                  ) : (
-                    <ArrowUpRight
-                      size={17}
-                      strokeWidth={1.8}
-                    />
-                  )}
-                </button>
+                <div className="testimonials__identity">
+                  <h4>{item.name}</h4>
+                  <p>Paciente / Nutri Visión Synergy</p>
+                </div>
+              </div>
+
+              <div className="testimonials__copy">
+                <h5>{item.title}</h5>
+                <p>{item.excerpt}</p>
               </div>
 
               <button
-                className="testimonial-card__read"
                 type="button"
-                onClick={() =>
-                  openTestimonial(testimonial.id)
-                }
+                className="testimonials__button"
+                onClick={() => openModal(item)}
+                aria-label={`Leer testimonio completo de ${item.name}`}
               >
-                {testimonial.videoSrc
-                  ? 'Ver testimonio'
-                  : 'Leer experiencia'}
+                LEER TESTIMONIO
 
-                <ArrowUpRight
-                  size={14}
+                <ChevronRight
+                  size={16}
                   strokeWidth={1.8}
                 />
               </button>
             </motion.article>
-          ))}
-        </AnimatePresence>
+          )
+        })}
       </div>
 
-      <div className="testimonials__actions">
-        <button
-          className="testimonials__more"
-          type="button"
-          onClick={() =>
-            setShowAll((currentValue) => !currentValue)
-          }
-        >
-          <span>
-            {showAll
-              ? 'Mostrar menos'
-              : 'Ver más experiencias'}
-          </span>
+      <p className="testimonials__note">
+        Testimonios adaptados para facilitar su lectura.
+        Cada experiencia es individual y los resultados
+        pueden variar de una persona a otra.
+      </p>
 
-          <span className="testimonials__more-count">
-            {showAll
-              ? '−'
-              : `+${testimonials.length - 3}`}
-          </span>
-        </button>
-      </div>
+      {/* TESTIMONIO AMPLIADO */}
 
       <AnimatePresence>
-        {activeTestimonial && (
+        {activeItem && (
           <motion.div
-            className="testimonial-modal"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Testimonio de paciente"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            className="testimonials__overlay"
+            role="presentation"
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+            }}
+            exit={{
+              opacity: 0,
+            }}
             onMouseDown={(event) => {
               if (event.target === event.currentTarget) {
-                closeTestimonial()
+                closeModal()
               }
             }}
           >
             <motion.div
-              className="testimonial-modal__dialog"
-              initial={{
-                opacity: 0,
-                y: 25,
-                scale: 0.97,
-              }}
+              className="testimonials__modal"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="testimonial-modal-title"
+              ref={dialogRef}
+              tabIndex={-1}
+              initial={
+                reduceMotion
+                  ? false
+                  : {
+                      opacity: 0,
+                      y: 18,
+                      scale: 0.98,
+                    }
+              }
               animate={{
                 opacity: 1,
                 y: 0,
                 scale: 1,
               }}
-              exit={{
-                opacity: 0,
-                y: 15,
-                scale: 0.98,
-              }}
+              exit={
+                reduceMotion
+                  ? undefined
+                  : {
+                      opacity: 0,
+                      y: 10,
+                      scale: 0.98,
+                    }
+              }
               transition={{
-                duration: 0.28,
-                ease: 'easeOut',
+                duration: reduceMotion ? 0 : 0.24,
               }}
             >
-              <button
-                className="testimonial-modal__close"
-                type="button"
-                onClick={closeTestimonial}
-                aria-label="Cerrar testimonio"
-              >
-                <X
-                  size={20}
-                  strokeWidth={1.7}
-                />
-              </button>
+              <div className="testimonials__modal-head">
+                <div className="testimonials__modal-label">
+                  <span>
+                    TESTIMONIO NVS / {activeItem.id}
+                  </span>
 
-              <div className="testimonial-modal__head">
-                <span className="testimonial-modal__number">
-                  {String(activeTestimonial.id).padStart(
-                    2,
-                    '0',
-                  )}
-                </span>
+                  <h4 id="testimonial-modal-title">
+                    {activeItem.name}
+                  </h4>
+                </div>
 
-                <span className="testimonial-modal__category">
-                  {activeTestimonial.category}
-                </span>
+                <button
+                  ref={closeButtonRef}
+                  type="button"
+                  className="testimonials__close"
+                  onClick={closeModal}
+                  aria-label="Cerrar testimonio"
+                >
+                  <X size={20} />
+                </button>
               </div>
 
-              {activeTestimonial.videoSrc ? (
-                <div className="testimonial-modal__video">
-                  <video
-                    controls
-                    playsInline
-                    preload="metadata"
-                    src={activeTestimonial.videoSrc}
+              <div className="testimonials__modal-body">
+                <div className="testimonials__modal-intro">
+                  <div
+                    className="testimonials__modal-icon"
+                    aria-hidden="true"
                   >
-                    Tu navegador no puede reproducir este video.
-                  </video>
-                </div>
-              ) : (
-                <div className="testimonial-modal__quote-icon">
-                  <Quote
-                    size={31}
-                    strokeWidth={1.4}
-                  />
-                </div>
-              )}
+                    {(() => {
+                      const Icon =
+                        iconMap[activeItem.icon] || Quote
 
-              <h4 className="testimonial-modal__title">
-                “{activeTestimonial.title}”
-              </h4>
-
-              <p className="testimonial-modal__text">
-                {activeTestimonial.fullText}
-              </p>
-
-              <div className="testimonial-modal__bottom">
-                <div className="testimonial-modal__patient">
-                  <span>NVS</span>
+                      return (
+                        <Icon
+                          size={24}
+                          strokeWidth={1.8}
+                        />
+                      )
+                    })()}
+                  </div>
 
                   <div>
-                    <strong>
-                      {activeTestimonial.patient}
-                    </strong>
-
-                    <small>
-                      Testimonio compartido con autorización
-                    </small>
+                    <span>{activeItem.tag}</span>
+                    <h5>{activeItem.title}</h5>
                   </div>
                 </div>
 
-                <div className="testimonial-modal__navigation">
-                  <button
-                    type="button"
-                    onClick={showPrevious}
-                    aria-label="Testimonio anterior"
-                  >
-                    <ChevronLeft
-                      size={19}
-                      strokeWidth={1.8}
-                    />
-                  </button>
-
-                  <span>
-                    {activeIndex + 1}
-                    <small>/</small>
-                    {testimonials.length}
-                  </span>
-
-                  <button
-                    type="button"
-                    onClick={showNext}
-                    aria-label="Siguiente testimonio"
-                  >
-                    <ChevronRight
-                      size={19}
-                      strokeWidth={1.8}
-                    />
-                  </button>
+                <div className="testimonials__modal-text">
+                  {activeItem.body.map((paragraph, index) => (
+                    <p key={index}>
+                      {paragraph}
+                    </p>
+                  ))}
                 </div>
+
+                {activeItem.highlights.length > 0 && (
+                  <div className="testimonials__highlights">
+                    <h6>Puntos clave del proceso</h6>
+
+                    <ul>
+                      {activeItem.highlights.map(
+                        (point, index) => (
+                          <li key={index}>
+                            {point}
+                          </li>
+                        ),
+                      )}
+                    </ul>
+                  </div>
+                )}
               </div>
             </motion.div>
           </motion.div>
