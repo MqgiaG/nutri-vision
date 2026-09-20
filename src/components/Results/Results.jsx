@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import {
@@ -255,7 +256,10 @@ function Results() {
                     decoding="async"
                   />
 
-                  <div className="results__preview-overlay" aria-hidden="true" />
+                  <div
+                    className="results__preview-overlay"
+                    aria-hidden="true"
+                  />
 
                   <span className="results__preview-pill">
                     <Expand size={14} strokeWidth={1.8} />
@@ -286,47 +290,6 @@ function Results() {
               </p>
             </div>
           </div>
-        </div>
-
-        <div className="results__gallery-head">
-          <span>OTROS REGISTROS DISPONIBLES</span>
-          <span>
-            {currentCase} — {totalCases}
-          </span>
-        </div>
-
-        <div
-          className="results__gallery"
-          role="group"
-          aria-label="Seleccionar registro fotográfico"
-        >
-          {cases.map((item, index) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => setActiveIndex(index)}
-              className={`results__thumb${
-                index === activeIndex ? ' results__thumb--active' : ''
-              }`}
-              aria-pressed={index === activeIndex}
-              aria-label={`Ver registro ${item.id}`}
-            >
-              <div className="results__thumb-image-wrap">
-                <img
-                  src={item.image}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  className="results__thumb-image"
-                />
-              </div>
-
-              <div className="results__thumb-copy">
-                <span>CASO {item.id}</span>
-                <strong>Registro fotográfico</strong>
-              </div>
-            </button>
-          ))}
         </div>
 
         <p className="results__note">
